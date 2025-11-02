@@ -75,7 +75,22 @@
                   autocomplete="off"
                 />
                 <datalist id="citiesList">
-                  <!-- City options will be dynamically inserted here -->
+                  <option value="London" data-city-key="london"></option>
+                  <option value="Paris" data-city-key="paris"></option>
+                  <option value="New York" data-city-key="new york"></option>
+                  <option value="Tokyo" data-city-key="tokyo"></option>
+                  <option value="Sydney" data-city-key="sydney"></option>
+                  <option value="Dubai" data-city-key="dubai"></option>
+                  <option value="Moscow" data-city-key="moscow"></option>
+                  <option value="Singapore" data-city-key="singapore"></option>
+                  <option
+                    value="Los Angeles"
+                    data-city-key="los angeles"
+                  ></option>
+                  <option value="Mumbai" data-city-key="mumbai"></option>
+                  <option value="Berlin" data-city-key="berlin"></option>
+                  <option value="Toronto" data-city-key="toronto"></option>
+                  <option value="Madrid" data-city-key="madrid"></option>
                 </datalist>
                 <button
                   class="btn btn-outline-secondary"
@@ -99,15 +114,8 @@
         </div>
 
         <!-- Welcome Message -->
-        <div id="welcomeMessage" class="text-center py-5">
-          <i class="bi bi-search display-1 text-secondary mb-3"></i>
-          <p class="fs-5 text-secondary">
-            Search for a city to view weather information
-          </p>
-        </div>
-
         <!-- Weather Dashboard -->
-        <div id="weatherDashboard" class="d-none">
+        <div id="weatherDashboard">
           <div class="row g-4">
             <!-- Left Column: Main Weather Info -->
             <div class="col-12 col-xl-8">
@@ -115,9 +123,9 @@
                 <!-- Current Weather Card -->
                 <div class="card border-0 shadow-sm weather-card">
                   <div class="card-body p-4">
-                    <h1 class="h2 fw-normal mb-1" id="cityName">—</h1>
+                    <h1 class="h2 fw-normal mb-1" id="cityName">London</h1>
                     <p class="text-secondary mb-4" id="rainChance">
-                      Chance of rain: 0%
+                      Chance of rain: 45%
                     </p>
 
                     <div
@@ -125,12 +133,12 @@
                     >
                       <div class="d-flex align-items-start">
                         <span class="display-1 fw-light" id="temperature"
-                          >—</span
+                          >12</span
                         >
                         <span class="fs-1 fw-light mt-2">°</span>
                       </div>
                       <div class="weather-icon-large">
-                        <i id="weatherIcon" class="bi bi-sun"></i>
+                        <i id="weatherIcon" class="bi bi-cloud"></i>
                       </div>
                     </div>
                   </div>
@@ -149,7 +157,44 @@
                       class="row row-cols-3 row-cols-md-6 g-3"
                       id="hourlyForecast"
                     >
-                      <!-- Hourly forecast will be inserted here -->
+                      <div class="col text-center">
+                        <p class="text-secondary small mb-2">6:00 AM</p>
+                        <i
+                          class="bi bi-cloud fs-2 text-warning d-block my-2"
+                        ></i>
+                        <p class="fw-semibold mb-0">10°</p>
+                      </div>
+                      <div class="col text-center">
+                        <p class="text-secondary small mb-2">9:00 AM</p>
+                        <i
+                          class="bi bi-cloud-sun fs-2 text-warning d-block my-2"
+                        ></i>
+                        <p class="fw-semibold mb-0">11°</p>
+                      </div>
+                      <div class="col text-center">
+                        <p class="text-secondary small mb-2">12:00 PM</p>
+                        <i class="bi bi-sun fs-2 text-warning d-block my-2"></i>
+                        <p class="fw-semibold mb-0">13°</p>
+                      </div>
+                      <div class="col text-center">
+                        <p class="text-secondary small mb-2">3:00 PM</p>
+                        <i class="bi bi-sun fs-2 text-warning d-block my-2"></i>
+                        <p class="fw-semibold mb-0">14°</p>
+                      </div>
+                      <div class="col text-center">
+                        <p class="text-secondary small mb-2">6:00 PM</p>
+                        <i
+                          class="bi bi-cloud-sun fs-2 text-warning d-block my-2"
+                        ></i>
+                        <p class="fw-semibold mb-0">12°</p>
+                      </div>
+                      <div class="col text-center">
+                        <p class="text-secondary small mb-2">9:00 PM</p>
+                        <i
+                          class="bi bi-cloud fs-2 text-warning d-block my-2"
+                        ></i>
+                        <p class="fw-semibold mb-0">9°</p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -166,11 +211,6 @@
                       >
                         AIR CONDITIONS
                       </h3>
-                      <button
-                        class="btn btn-sm btn-link text-primary text-decoration-none"
-                      >
-                        See more
-                      </button>
                     </div>
                     <div class="row row-cols-1 row-cols-md-2 g-4">
                       <div class="col">
@@ -181,7 +221,7 @@
                           <div>
                             <p class="text-secondary mb-1 small">Real Feel</p>
                             <p class="fs-4 fw-semibold mb-0" id="realFeel">
-                              —°
+                              10°
                             </p>
                           </div>
                         </div>
@@ -192,7 +232,7 @@
                           <div>
                             <p class="text-secondary mb-1 small">Wind</p>
                             <p class="fs-4 fw-semibold mb-0" id="windSpeed">
-                              — km/h
+                              15 km/h
                             </p>
                           </div>
                         </div>
@@ -205,7 +245,7 @@
                               Chance of rain
                             </p>
                             <p class="fs-4 fw-semibold mb-0" id="rainPercent">
-                              —%
+                              45%
                             </p>
                           </div>
                         </div>
@@ -215,7 +255,7 @@
                           <i class="bi bi-sun fs-4 text-secondary"></i>
                           <div>
                             <p class="text-secondary mb-1 small">UV Index</p>
-                            <p class="fs-4 fw-semibold mb-0" id="uvIndex">—</p>
+                            <p class="fs-4 fw-semibold mb-0" id="uvIndex">2</p>
                           </div>
                         </div>
                       </div>
@@ -236,7 +276,148 @@
                     7-DAY FORECAST
                   </h3>
                   <div class="d-flex flex-column gap-2" id="forecast7Day">
-                    <!-- 7-day forecast will be inserted here -->
+                    <div
+                      class="d-flex align-items-center justify-content-between py-3 border-bottom"
+                    >
+                      <span class="fw-medium" style="min-width: 70px"
+                        >Today</span
+                      >
+                      <div
+                        class="d-flex align-items-center gap-2 flex-fill justify-content-center"
+                      >
+                        <i class="bi bi-cloud fs-4 text-warning"></i>
+                        <span class="text-secondary small text-capitalize"
+                          >Cloudy</span
+                        >
+                      </div>
+                      <div
+                        class="d-flex align-items-center gap-2"
+                        style="min-width: 80px; justify-content: flex-end"
+                      >
+                        <span class="fw-semibold">12°</span>
+                        <span class="text-secondary">/8°</span>
+                      </div>
+                    </div>
+                    <div
+                      class="d-flex align-items-center justify-content-between py-3 border-bottom"
+                    >
+                      <span class="fw-medium" style="min-width: 70px">Sun</span>
+                      <div
+                        class="d-flex align-items-center gap-2 flex-fill justify-content-center"
+                      >
+                        <i class="bi bi-sun fs-4 text-warning"></i>
+                        <span class="text-secondary small text-capitalize"
+                          >Sunny</span
+                        >
+                      </div>
+                      <div
+                        class="d-flex align-items-center gap-2"
+                        style="min-width: 80px; justify-content: flex-end"
+                      >
+                        <span class="fw-semibold">15°</span>
+                        <span class="text-secondary">/9°</span>
+                      </div>
+                    </div>
+                    <div
+                      class="d-flex align-items-center justify-content-between py-3 border-bottom"
+                    >
+                      <span class="fw-medium" style="min-width: 70px">Mon</span>
+                      <div
+                        class="d-flex align-items-center gap-2 flex-fill justify-content-center"
+                      >
+                        <i class="bi bi-cloud-sun fs-4 text-warning"></i>
+                        <span class="text-secondary small text-capitalize"
+                          >Partly cloudy</span
+                        >
+                      </div>
+                      <div
+                        class="d-flex align-items-center gap-2"
+                        style="min-width: 80px; justify-content: flex-end"
+                      >
+                        <span class="fw-semibold">13°</span>
+                        <span class="text-secondary">/7°</span>
+                      </div>
+                    </div>
+                    <div
+                      class="d-flex align-items-center justify-content-between py-3 border-bottom"
+                    >
+                      <span class="fw-medium" style="min-width: 70px">Tue</span>
+                      <div
+                        class="d-flex align-items-center gap-2 flex-fill justify-content-center"
+                      >
+                        <i class="bi bi-cloud-rain fs-4 text-warning"></i>
+                        <span class="text-secondary small text-capitalize"
+                          >Rainy</span
+                        >
+                      </div>
+                      <div
+                        class="d-flex align-items-center gap-2"
+                        style="min-width: 80px; justify-content: flex-end"
+                      >
+                        <span class="fw-semibold">10°</span>
+                        <span class="text-secondary">/5°</span>
+                      </div>
+                    </div>
+                    <div
+                      class="d-flex align-items-center justify-content-between py-3 border-bottom"
+                    >
+                      <span class="fw-medium" style="min-width: 70px">Wed</span>
+                      <div
+                        class="d-flex align-items-center gap-2 flex-fill justify-content-center"
+                      >
+                        <i class="bi bi-cloud fs-4 text-warning"></i>
+                        <span class="text-secondary small text-capitalize"
+                          >Cloudy</span
+                        >
+                      </div>
+                      <div
+                        class="d-flex align-items-center gap-2"
+                        style="min-width: 80px; justify-content: flex-end"
+                      >
+                        <span class="fw-semibold">11°</span>
+                        <span class="text-secondary">/6°</span>
+                      </div>
+                    </div>
+                    <div
+                      class="d-flex align-items-center justify-content-between py-3 border-bottom"
+                    >
+                      <span class="fw-medium" style="min-width: 70px">Thu</span>
+                      <div
+                        class="d-flex align-items-center gap-2 flex-fill justify-content-center"
+                      >
+                        <i class="bi bi-sun fs-4 text-warning"></i>
+                        <span class="text-secondary small text-capitalize"
+                          >Sunny</span
+                        >
+                      </div>
+                      <div
+                        class="d-flex align-items-center gap-2"
+                        style="min-width: 80px; justify-content: flex-end"
+                      >
+                        <span class="fw-semibold">16°</span>
+                        <span class="text-secondary">/10°</span>
+                      </div>
+                    </div>
+                    <div
+                      class="d-flex align-items-center justify-content-between py-3"
+                    >
+                      <span class="fw-medium" style="min-width: 70px">Fri</span>
+                      <div
+                        class="d-flex align-items-center gap-2 flex-fill justify-content-center"
+                      >
+                        <i class="bi bi-cloud-lightning fs-4 text-warning"></i>
+                        <span class="text-secondary small text-capitalize"
+                          >Storm</span
+                        >
+                      </div>
+                      <div
+                        class="d-flex align-items-center gap-2"
+                        style="min-width: 80px; justify-content: flex-end"
+                      >
+                        <span class="fw-semibold">8°</span>
+                        <span class="text-secondary">/3°</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
