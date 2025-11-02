@@ -145,56 +145,175 @@
                   </div>
                 </div>
 
-                <!-- Today's Forecast -->
+                <!-- Hourly Forecast -->
                 <div class="card border-0 shadow-sm weather-card">
                   <div class="card-body p-4">
                     <h3
-                      class="text-uppercase text-secondary fw-semibold mb-4"
+                      class="text-uppercase text-secondary fw-semibold mb-2"
                       style="font-size: 0.875rem; letter-spacing: 0.5px"
                     >
-                      TODAY'S FORECAST
+                      พยากรณ์ประจำชั่วโมง
                     </h3>
                     <div
-                      class="row row-cols-3 row-cols-md-6 g-3"
+                      class="d-flex gap-3 overflow-auto py-3 px-1"
                       id="hourlyForecast"
+                      style="scrollbar-width: thin; margin: -0.25rem"
                     >
-                      <div class="col text-center">
-                        <p class="text-secondary small mb-2">6:00 AM</p>
+                      <div class="hourly-item text-center flex-shrink-0">
+                        <p class="text-secondary small mb-2">00:00</p>
                         <i
                           class="bi bi-cloud fs-2 text-warning d-block my-2"
                         ></i>
+                        <p class="fw-semibold mb-0">8°</p>
+                      </div>
+                      <div class="hourly-item text-center flex-shrink-0">
+                        <p class="text-secondary small mb-2">01:00</p>
+                        <i
+                          class="bi bi-cloud fs-2 text-warning d-block my-2"
+                        ></i>
+                        <p class="fw-semibold mb-0">8°</p>
+                      </div>
+                      <div class="hourly-item text-center flex-shrink-0">
+                        <p class="text-secondary small mb-2">02:00</p>
+                        <i
+                          class="bi bi-cloud fs-2 text-warning d-block my-2"
+                        ></i>
+                        <p class="fw-semibold mb-0">7°</p>
+                      </div>
+                      <div class="hourly-item text-center flex-shrink-0">
+                        <p class="text-secondary small mb-2">03:00</p>
+                        <i
+                          class="bi bi-cloud fs-2 text-warning d-block my-2"
+                        ></i>
+                        <p class="fw-semibold mb-0">7°</p>
+                      </div>
+                      <div class="hourly-item text-center flex-shrink-0">
+                        <p class="text-secondary small mb-2">04:00</p>
+                        <i
+                          class="bi bi-cloud fs-2 text-warning d-block my-2"
+                        ></i>
+                        <p class="fw-semibold mb-0">7°</p>
+                      </div>
+                      <div class="hourly-item text-center flex-shrink-0">
+                        <p class="text-secondary small mb-2">05:00</p>
+                        <i
+                          class="bi bi-cloud fs-2 text-warning d-block my-2"
+                        ></i>
+                        <p class="fw-semibold mb-0">7°</p>
+                      </div>
+                      <div class="hourly-item text-center flex-shrink-0">
+                        <p class="text-secondary small mb-2">06:00</p>
+                        <i
+                          class="bi bi-cloud fs-2 text-warning d-block my-2"
+                        ></i>
+                        <p class="fw-semibold mb-0">8°</p>
+                      </div>
+                      <div class="hourly-item text-center flex-shrink-0">
+                        <p class="text-secondary small mb-2">07:00</p>
+                        <i
+                          class="bi bi-cloud-sun fs-2 text-warning d-block my-2"
+                        ></i>
+                        <p class="fw-semibold mb-0">9°</p>
+                      </div>
+                      <div class="hourly-item text-center flex-shrink-0">
+                        <p class="text-secondary small mb-2">08:00</p>
+                        <i
+                          class="bi bi-cloud-sun fs-2 text-warning d-block my-2"
+                        ></i>
                         <p class="fw-semibold mb-0">10°</p>
                       </div>
-                      <div class="col text-center">
-                        <p class="text-secondary small mb-2">9:00 AM</p>
+                      <div class="hourly-item text-center flex-shrink-0">
+                        <p class="text-secondary small mb-2">09:00</p>
                         <i
                           class="bi bi-cloud-sun fs-2 text-warning d-block my-2"
                         ></i>
                         <p class="fw-semibold mb-0">11°</p>
                       </div>
-                      <div class="col text-center">
-                        <p class="text-secondary small mb-2">12:00 PM</p>
+                      <div class="hourly-item text-center flex-shrink-0">
+                        <p class="text-secondary small mb-2">10:00</p>
+                        <i class="bi bi-sun fs-2 text-warning d-block my-2"></i>
+                        <p class="fw-semibold mb-0">12°</p>
+                      </div>
+                      <div class="hourly-item text-center flex-shrink-0">
+                        <p class="text-secondary small mb-2">11:00</p>
                         <i class="bi bi-sun fs-2 text-warning d-block my-2"></i>
                         <p class="fw-semibold mb-0">13°</p>
                       </div>
-                      <div class="col text-center">
-                        <p class="text-secondary small mb-2">3:00 PM</p>
+                      <div class="hourly-item text-center flex-shrink-0">
+                        <p class="text-secondary small mb-2">12:00</p>
                         <i class="bi bi-sun fs-2 text-warning d-block my-2"></i>
                         <p class="fw-semibold mb-0">14°</p>
                       </div>
-                      <div class="col text-center">
-                        <p class="text-secondary small mb-2">6:00 PM</p>
+                      <div class="hourly-item text-center flex-shrink-0">
+                        <p class="text-secondary small mb-2">13:00</p>
+                        <i class="bi bi-sun fs-2 text-warning d-block my-2"></i>
+                        <p class="fw-semibold mb-0">14°</p>
+                      </div>
+                      <div class="hourly-item text-center flex-shrink-0">
+                        <p class="text-secondary small mb-2">14:00</p>
+                        <i class="bi bi-sun fs-2 text-warning d-block my-2"></i>
+                        <p class="fw-semibold mb-0">14°</p>
+                      </div>
+                      <div class="hourly-item text-center flex-shrink-0">
+                        <p class="text-secondary small mb-2">15:00</p>
+                        <i class="bi bi-sun fs-2 text-warning d-block my-2"></i>
+                        <p class="fw-semibold mb-0">14°</p>
+                      </div>
+                      <div class="hourly-item text-center flex-shrink-0">
+                        <p class="text-secondary small mb-2">16:00</p>
+                        <i
+                          class="bi bi-cloud-sun fs-2 text-warning d-block my-2"
+                        ></i>
+                        <p class="fw-semibold mb-0">13°</p>
+                      </div>
+                      <div class="hourly-item text-center flex-shrink-0">
+                        <p class="text-secondary small mb-2">17:00</p>
                         <i
                           class="bi bi-cloud-sun fs-2 text-warning d-block my-2"
                         ></i>
                         <p class="fw-semibold mb-0">12°</p>
                       </div>
-                      <div class="col text-center">
-                        <p class="text-secondary small mb-2">9:00 PM</p>
+                      <div class="hourly-item text-center flex-shrink-0">
+                        <p class="text-secondary small mb-2">18:00</p>
+                        <i
+                          class="bi bi-cloud-sun fs-2 text-warning d-block my-2"
+                        ></i>
+                        <p class="fw-semibold mb-0">11°</p>
+                      </div>
+                      <div class="hourly-item text-center flex-shrink-0">
+                        <p class="text-secondary small mb-2">19:00</p>
+                        <i
+                          class="bi bi-cloud fs-2 text-warning d-block my-2"
+                        ></i>
+                        <p class="fw-semibold mb-0">10°</p>
+                      </div>
+                      <div class="hourly-item text-center flex-shrink-0">
+                        <p class="text-secondary small mb-2">20:00</p>
                         <i
                           class="bi bi-cloud fs-2 text-warning d-block my-2"
                         ></i>
                         <p class="fw-semibold mb-0">9°</p>
+                      </div>
+                      <div class="hourly-item text-center flex-shrink-0">
+                        <p class="text-secondary small mb-2">21:00</p>
+                        <i
+                          class="bi bi-cloud fs-2 text-warning d-block my-2"
+                        ></i>
+                        <p class="fw-semibold mb-0">9°</p>
+                      </div>
+                      <div class="hourly-item text-center flex-shrink-0">
+                        <p class="text-secondary small mb-2">22:00</p>
+                        <i
+                          class="bi bi-cloud fs-2 text-warning d-block my-2"
+                        ></i>
+                        <p class="fw-semibold mb-0">8°</p>
+                      </div>
+                      <div class="hourly-item text-center flex-shrink-0">
+                        <p class="text-secondary small mb-2">23:00</p>
+                        <i
+                          class="bi bi-cloud fs-2 text-warning d-block my-2"
+                        ></i>
+                        <p class="fw-semibold mb-0">8°</p>
                       </div>
                     </div>
                   </div>

@@ -151,6 +151,36 @@ body {
 }
 
 /* ==========================================
+   Hourly Forecast Card Styling
+   ========================================== */
+.hourly-item {
+  min-width: 90px;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: rgba(102, 126, 234, 0.05);
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.hourly-item:hover {
+  background-color: rgba(102, 126, 234, 0.1);
+  border-color: rgba(102, 126, 234, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .hourly-item {
+  background-color: rgba(102, 126, 234, 0.08);
+}
+
+[data-theme="dark"] .hourly-item:hover {
+  background-color: rgba(102, 126, 234, 0.15);
+  border-color: rgba(102, 126, 234, 0.4);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* ==========================================
    Theme Toggle & Search Input Styling
    ========================================== */
 .theme-toggle:active {
