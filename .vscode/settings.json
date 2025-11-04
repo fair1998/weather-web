@@ -1,0 +1,22 @@
+{
+  // ใช้ Prettier เป็น default formatter
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+  // ให้จัด format อัตโนมัติเมื่อบันทึกไฟล์
+  "editor.formatOnSave": true,
+
+  // เปิดใช้การจัดโค้ดอัตโนมัติสำหรับไฟล์ HTML, CSS, JS
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // ตั้งค่า Prettier
+  "prettier.printWidth": 100, // จำกัดความยาวบรรทัด
+  "prettier.tabWidth": 2 // ความกว้างของแท็บ
+}

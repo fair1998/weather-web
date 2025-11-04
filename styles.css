@@ -100,7 +100,8 @@ body {
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0) rotate(0deg);
   }
   50% {
@@ -115,15 +116,15 @@ body {
   .weather-icon-large i {
     font-size: 6rem;
   }
-  
+
   .sidebar {
     width: 60px !important;
   }
-  
+
   .main-content {
     margin-left: 60px !important;
   }
-  
+
   .menu-item small {
     display: none;
   }
@@ -133,11 +134,11 @@ body {
   .sidebar {
     display: none !important;
   }
-  
+
   .main-content {
     margin-left: 0 !important;
   }
-  
+
   .weather-icon-large i {
     font-size: 4rem;
   }
@@ -195,7 +196,6 @@ body {
   border-radius: 0 0.75rem 0.75rem 0 !important;
 }
 
-
 .weather-card {
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.05);
@@ -206,4 +206,3 @@ body {
   transform: translateY(-5px);
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
 }
-
