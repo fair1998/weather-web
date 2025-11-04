@@ -53,4 +53,3 @@ function startClock() {
   updateTime(); // แสดงทันที
   setInterval(updateTime, 1000); // อัปเดตทุกวินาที
 }
-
