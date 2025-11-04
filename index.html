@@ -122,28 +122,23 @@
             <div class="col-12 col-xl-8">
               <div class="d-flex flex-column gap-4">
                 <!-- Current Weather Card -->
-                <div class="card border-0 shadow-sm weather-card">
-                  <div class="card-body p-4">
-                    <h1 class="h2 fw-normal mb-1" id="cityName">London</h1>
-                    <p class="text-secondary mb-4" id="rainChance">
-                      Chance of rain: 45%
-                    </p>
+    <div class="card border-0 shadow-sm weather-card">
+      <div class="card-body p-5">
+        <h1 class="h2 fw-normal mb-1" id="cityName">London</h1>
+        <p class="small fw-normal opacity-75 mb-1" id="localTime"></p>
+        <p class="fw-normal opacity-75 mb-4" id="rainChance">Chance of rain: 45%</p>
 
-                    <div
-                      class="d-flex justify-content-between align-items-center"
-                    >
-                      <div class="d-flex align-items-start">
-                        <span class="display-1 fw-light" id="temperature"
-                          >12</span
-                        >
-                        <span class="fs-1 fw-light mt-2">°</span>
-                      </div>
-                      <div class="weather-icon-large">
-                        <i id="weatherIcon" class="bi bi-cloud"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="d-flex align-items-start">
+            <span class="display-1 fw-light" id="temperature">12</span>
+            <span class="fs-1 fw-light mt-2">°</span>
+          </div>
+          <div class="weather-icon-large">
+            <i id="weatherIcon" class="bi bi-cloud-fill text-warning"></i>
+          </div>
+        </div>
+      </div>
+    </div>
 
                 <!-- Hourly Forecast -->
                 <div class="card border-0 shadow-sm weather-card">
@@ -382,6 +377,7 @@
                     </div>
                   </div>
                 </div>
+
               </div>
             </div>
 

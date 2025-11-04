@@ -33,4 +33,24 @@ themeToggle.addEventListener("click", () => {
 // ==========================================
 document.addEventListener("DOMContentLoaded", () => {
   loadTheme();
+  startClock();
 });
+
+function startClock() {
+  const timeElement = document.getElementById("localTime");
+
+  function updateTime() {
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, "0");
+    const minutes = now.getMinutes().toString().padStart(2, "0");
+    const seconds = now.getSeconds().toString().padStart(2, "0");
+
+    // รูปแบบเวลา HH:MM:SS
+    const timeString = `${hours}:${minutes}:${seconds}`;
+    timeElement.textContent = timeString;
+  }
+
+  updateTime(); // แสดงทันที
+  setInterval(updateTime, 1000); // อัปเดตทุกวินาที
+}
+
