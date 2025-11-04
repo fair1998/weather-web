@@ -27,6 +27,32 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css" />
+
+    <style>
+      .forecast-item {
+        transition: background-color 0.3s ease;
+        border-radius: 0.75rem;
+        padding: 0.5rem 1rem;
+      }
+
+      .forecast-item:hover {
+        background-color: rgba(102, 126, 234, 0.08);
+      }
+
+      .temp-bar {
+        height: 6px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .bar-inner {
+        height: 100%;
+        background: linear-gradient(90deg, #667eea, #764ba2);
+        border-radius: 4px;
+      }
+    </style>
   </head>
   <body>
     <!-- Sidebar Navigation -->
@@ -333,73 +359,72 @@
                   >
                     7-DAY FORECAST
                   </h3>
-                  <!-- sun -->
-                  <div class="d-flex flex-column gap-3" id="forecast7Day">
-                    <div class="forecast-item d-flex align-items-center justify-content-between py-3 border-bottom">
-                        <span class="day fw-medium" style="width: 60px;">Sun</span>
-                        <i class="bi bi-cloud-sun fs-4 text-warning" style="width: 40px;"></i>
-                        <span class="text-secondary small text-capitalize flex-fill">Partly cloudy</span>
-                        <span class="text-secondary fw-semibold" style="width: 40px; text-align: right;">25°</span>
-                    <div class="temp-bar flex-fill mx-2">
-                        <div class="bar-inner" style="width: 60%;"></div>
-                    </div>
-                        <span class="fw-semibold" style="width: 40px;">31°</span>
-                        <div class="rain-chance d-flex align-items-center gap-1"
-                        style="width: 70px; justify-content: flex-end;">
+                  <div class="d-flex flex-column gap-3">
+                    <!-- sun -->
+                    <div
+                      class="forecast-item d-flex align-items-center justify-content-between py-3 border-bottom"
+                    >
+                      <span class="day fw-medium" style="width: 60px">Sun</span>
+                      <i class="bi bi-cloud-sun fs-4 text-warning" style="width: 40px"></i>
+                      <span class="text-secondary small text-capitalize flex-fill">
+                        Partly cloudy
+                      </span>
+                      <span
+                        class="text-secondary fw-semibold"
+                        style="width: 40px; text-align: right"
+                      >
+                        25°
+                      </span>
+                      <div class="temp-bar flex-fill mx-2">
+                        <div class="bar-inner" style="width: 60%"></div>
+                      </div>
+                      <span class="fw-semibold" style="width: 40px">31°</span>
+                      <div
+                        class="rain-chance d-flex align-items-center gap-1"
+                        style="width: 70px; justify-content: flex-end"
+                      >
                         <i class="bi bi-droplet text-info"></i>
                         <span class="text-secondary small">45%</span>
+                      </div>
                     </div>
-            </div>
-            <!-- mon -->
-                  <div class="d-flex flex-column gap-3" id="forecast7Day">
-                    <div class="forecast-item d-flex align-items-center justify-content-between py-3 border-bottom">
-                        <span class="day fw-medium" style="width: 60px;">Mon</span>
-                        <i class="bi bi-sun fs-4 text-warning" style="width: 40px;"></i>
+                    <!-- mon -->
+                    <div class="d-flex flex-column gap-3">
+                      <div
+                        class="forecast-item d-flex align-items-center justify-content-between py-3 border-bottom"
+                      >
+                        <span class="day fw-medium" style="width: 60px">Mon</span>
+                        <i class="bi bi-sun fs-4 text-warning" style="width: 40px"></i>
                         <span class="text-secondary small text-capitalize flex-fill">Sunny</span>
-                        <span class="text-secondary fw-semibold" style="width: 40px; text-align: right;">29°</span>
-                    <div class="temp-bar flex-fill mx-2">
-                        <div class="bar-inner" style="width: 60%;"></div>
+                        <span
+                          class="text-secondary fw-semibold"
+                          style="width: 40px; text-align: right"
+                        >
+                          29°
+                        </span>
+                        <div class="temp-bar flex-fill mx-2">
+                          <div class="bar-inner" style="width: 60%"></div>
+                        </div>
+                        <span class="fw-semibold" style="width: 40px">33°</span>
+                        <div
+                          class="rain-chance d-flex align-items-center gap-1"
+                          style="width: 70px; justify-content: flex-end"
+                        >
+                          <i class="bi bi-droplet text-info"></i>
+                          <span class="text-secondary small">6%</span>
+                        </div>
+                      </div>
+                      <!-- เพิ่มวันอื่นตามนี้ -->
                     </div>
-                        <span class="fw-semibold" style="width: 40px;">33°</span>
-                        <div class="rain-chance d-flex align-items-center gap-1"
-                        style="width: 70px; justify-content: flex-end;">
-                        <i class="bi bi-droplet text-info"></i>
-                        <span class="text-secondary small">6%</span>
-                    </div>
+                    <!-- ปิด forecast7Day -->
+                  </div>
+                </div>
+              </div>
             </div>
-        <!-- เพิ่มวันอื่นตามนี้ -->
+          </div>
+        </div>
       </div>
-      <!-- ปิด forecast7Day -->
     </div>
-  </div>
-</div>
-<!-- css 7 day เดี๋ยวค่อยย้ายไปไฟล์css -->
- <style>
-.forecast-item {
-  transition: background-color 0.3s ease;
-  border-radius: 0.75rem;
-  padding: 0.5rem 1rem;
-}
 
-.forecast-item:hover {
-  background-color: rgba(102, 126, 234, 0.08);
-}
-
-.temp-bar {
-  height: 6px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-  overflow: hidden;
-  position: relative;
-}
-
-.bar-inner {
-  height: 100%;
-  background: linear-gradient(90deg, #667eea, #764ba2);
-  border-radius: 4px;
-}
-
- </style>
     <!-- Toast Container for Notifications -->
     <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 9999">
       <div

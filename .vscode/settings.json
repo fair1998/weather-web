@@ -14,9 +14,5 @@
   },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-
-  // ตั้งค่า Prettier
-  "prettier.printWidth": 100, // จำกัดความยาวบรรทัด
-  "prettier.tabWidth": 2 // ความกว้างของแท็บ
+  }
 }
