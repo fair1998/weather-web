@@ -206,3 +206,23 @@ body {
   transform: translateY(-5px);
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
 }
+
+.sunny-bg {
+  background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+}
+
+.cloudy-bg {
+  background: linear-gradient(135deg, #757f9a 0%, #d7dde8 100%);
+}
+
+.rainy-bg {
+  background: linear-gradient(135deg, #667db6 0%, #0082c8 50%, #0082c8 100%);
+}
+
+.snowy-bg {
+  background: linear-gradient(135deg, #83a4d4 0%, #b6fbff 100%);
+}
+
+.night-bg {
+  background: linear-gradient(135deg, #232526 0%, #414345 100%);
+}

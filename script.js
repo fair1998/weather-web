@@ -53,3 +53,40 @@ function startClock() {
   updateTime(); // แสดงทันที
   setInterval(updateTime, 1000); // อัปเดตทุกวินาที
 }
+
+
+// ฟังก์ชันสำหรับเปลี่ยนสีพื้นหลังตามสภาพอากาศ
+function updateWeatherBackground(condition) {
+  const weatherCard = document.querySelector(".weather-card");
+
+  // เคลียร์คลาสเก่าออกก่อน
+  weatherCard.classList.remove(
+    "sunny-bg",
+    "cloudy-bg",
+    "rainy-bg",
+    "snowy-bg",
+    "night-bg"
+  );
+
+  // เพิ่มคลาสใหม่ตามสภาพอากาศ
+  if (condition.includes("sun")) {
+    weatherCard.classList.add("sunny-bg");
+  } else if (condition.includes("cloud")) {
+    weatherCard.classList.add("cloudy-bg");
+  } else if (condition.includes("rain")) {
+    weatherCard.classList.add("rainy-bg");
+  } else if (condition.includes("snow")) {
+    weatherCard.classList.add("snowy-bg");
+  } else {
+    weatherCard.classList.add("night-bg");
+  }
+}
+
+// ตัวอย่างการทดสอบ (ตอนข้อมูลสภาพอากาศเสร็จแล้วค่อยผูกจริง)
+document.addEventListener("DOMContentLoaded", () => {
+  loadTheme();
+  startClock();
+
+  // ทดสอบ: เปลี่ยนเป็น "sunny", "rainy" หรือ "cloudy"
+  updateWeatherBackground("cloud");
+});
