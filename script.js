@@ -157,3 +157,47 @@ function updateAirConditions(day) {
 
   console.log("อัปเดตข้อมูลสำหรับวัน:", day, data);
 }
+// ==========================================
+// สุ่มตัวเลข/สภาพอากาศ 7 วัน
+// ==========================================
+document.addEventListener("DOMContentLoaded", () => {
+  const forecastItems = document.querySelectorAll(".forecast-item");
+
+  // รายการสภาพอากาศที่จะสุ่มได้
+  const conditions = [
+    { name: "Sunny", icon: "bi-sun" },
+    { name: "Partly Cloudy", icon: "bi-cloud-sun" },
+    { name: "Cloudy", icon: "bi-cloud" },
+    { name: "Rainy", icon: "bi-cloud-rain" },
+    { name: "Stormy", icon: "bi-cloud-lightning" },
+  ];
+
+  forecastItems.forEach((item) => {
+    // สุ่มข้อมูล
+    const randomCondition = conditions[Math.floor(Math.random() * conditions.length)];
+    const minTemp = Math.floor(Math.random() * 11) + 20; // 20–30
+    const maxTemp = minTemp + Math.floor(Math.random() * 6) + 3; // +3 ถึง +8
+    const rainChance = Math.floor(Math.random() * 91); // 0–90%
+
+    // ดึง element ตามตำแหน่งที่แน่นอน
+    const iconEl = item.querySelector("i.fs-4");
+    const conditionEl = item.querySelector(".text-secondary.small.text-capitalize.flex-fill");
+    const minTempEl = item.querySelectorAll("span.text-secondary.fw-semibold")[0];
+    const maxTempEl = item.querySelectorAll("span.fw-semibold")[1];
+    const rainEl = item.querySelector(".rain-chance .text-secondary.small");
+    const barInner = item.querySelector(".bar-inner");
+
+    if (iconEl && conditionEl && minTempEl && maxTempEl && rainEl && barInner) {
+      // ✅ อัปเดตข้อมูลใน DOM
+      iconEl.className = `bi ${randomCondition.icon} fs-4 text-warning`;
+      conditionEl.textContent = randomCondition.name;
+      minTempEl.textContent = `${minTemp}°`;
+      maxTempEl.textContent = `${maxTemp}°`;
+      rainEl.textContent = `${rainChance}%`;
+
+      // ✅ ให้ tempbar ยาวเท่ากันทุกแท่ง (60%)
+      barInner.style.width = "60%";
+      barInner.style.background = "linear-gradient(90deg, #667eea, #764ba2)";
+    }
+  });
+});
