@@ -93,7 +93,7 @@ const weatherData = {
     uvIndex: "6",
   },
   Mon: {
-    realFeel: "32°",
+    realFeel: "30°",
     wind: "8 km/h",
     rainChance: "6%",
     uvIndex: "8",
