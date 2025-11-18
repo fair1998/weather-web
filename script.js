@@ -328,6 +328,63 @@ themeToggle.addEventListener("click", () => {
 // ==========================================
 const citySearchInput = document.getElementById("citySearch");
 
+// Air conditions configuration
+const airConditionsConfig = [
+  {
+    id: "realFeel",
+    label: "ความรู้สึกจริง",
+    icon: "bi-thermometer-half",
+    getValue: (data) => data.realFeel,
+  },
+  { id: "windSpeed", label: "ลม", icon: "bi-wind", getValue: (data) => `${data.windSpeed} km/h` },
+  {
+    id: "humidity",
+    label: "ความชื้น",
+    icon: "bi-droplet",
+    getValue: (data) => `${data.humidity}%`,
+  },
+  { id: "pm25", label: "ค่าฝุ่น PM2.5", icon: "bi-cloud-haze", getValue: (data) => data.pm25 },
+  {
+    id: "pressure",
+    label: "ความกดอากาศ",
+    icon: "bi-speedometer",
+    getValue: (data) => `${data.pressure} hPa`,
+  },
+  {
+    id: "visibility",
+    label: "ระยะมองเห็น",
+    icon: "bi-eye",
+    getValue: (data) => `${data.visibility} km`,
+  },
+  {
+    id: "rainPercent",
+    label: "โอกาสเกิดฝน",
+    icon: "bi-moisture",
+    getValue: (data) => data.rainChance,
+  },
+  { id: "uvIndex", label: "ดัชนี UV", icon: "bi-sun", getValue: (data) => data.uvIndex },
+];
+
+function renderAirConditions(data) {
+  const container = document.getElementById("airConditionsContainer");
+
+  container.innerHTML = airConditionsConfig
+    .map(
+      (item) => `
+    <div class="col">
+      <div class="d-flex gap-3">
+        <i class="bi ${item.icon} fs-4 text-secondary"></i>
+        <div>
+          <p class="text-secondary mb-1 small">${item.label}</p>
+          <p class="fs-4 fw-semibold mb-0" id="${item.id}">${item.getValue(data)}</p>
+        </div>
+      </div>
+    </div>
+  `
+    )
+    .join("");
+}
+
 function displayWeather(data, cityKey) {
   // Update main weather info
   document.getElementById("cityName").textContent = data.city;
@@ -335,15 +392,8 @@ function displayWeather(data, cityKey) {
   document.getElementById("temperature").textContent = data.temperature;
   document.getElementById("weatherIcon").className = `bi ${data.icon} text-warning`;
 
-  // Update air conditions
-  document.getElementById("realFeel").textContent = `${data.realFeel}`;
-  document.getElementById("windSpeed").textContent = `${data.windSpeed} km/h`;
-  document.getElementById("humidity").textContent = `${data.humidity}%`;
-  document.getElementById("pm25").textContent = data.pm25;
-  document.getElementById("pressure").textContent = `${data.pressure} hPa`;
-  document.getElementById("visibility").textContent = `${data.visibility} km`;
-  document.getElementById("rainPercent").textContent = `${data.rainChance}`;
-  document.getElementById("uvIndex").textContent = data.uvIndex;
+  // Render air conditions
+  renderAirConditions(data);
 
   // Generate and display hourly forecast
   displayHourlyForecast(data);
@@ -621,17 +671,26 @@ const weatherData = {
 
 function updateAirConditions(day, event) {
   const data = weatherData[day];
-  if (!data) showToast("ไม่พบข้อมูลสำหรับวัน:" + day);
+  if (!data) {
+    showToast("ไม่พบข้อมูลสำหรับวัน:" + day);
+    return;
+  }
 
-  document.getElementById("realFeel").textContent = data.realFeel;
-  document.getElementById("windSpeed").textContent = data.wind;
-  document.getElementById("humidity").textContent = data.humidity;
-  document.getElementById("pm25").textContent = data.pm25;
-  document.getElementById("pressure").textContent = data.pressure;
-  document.getElementById("visibility").textContent = data.visibility;
-  document.getElementById("rainPercent").textContent = data.rainChance;
-  document.getElementById("uvIndex").textContent = data.uvIndex;
+  // Update using the same rendering function
+  const tempData = {
+    realFeel: data.realFeel,
+    windSpeed: parseInt(data.wind),
+    humidity: parseInt(data.humidity),
+    pm25: data.pm25,
+    pressure: parseInt(data.pressure),
+    visibility: parseInt(data.visibility),
+    rainChance: data.rainChance,
+    uvIndex: data.uvIndex,
+  };
 
+  renderAirConditions(tempData);
+
+  // Update selected day highlight
   document.querySelectorAll(".forecast-item").forEach((item) => {
     item.style.backgroundColor = "";
     item.style.borderLeft = "";
