@@ -2,7 +2,7 @@
 // Mock Weather Data (Enhanced)
 // ==========================================
 const mockWeatherData = {
-  กรุงเทพมหานคร: {
+  bangkok: {
     city: "กรุงเทพมหานคร",
     temperature: 33,
     rainChance: "40%",
@@ -13,7 +13,7 @@ const mockWeatherData = {
     windSpeed: 15,
     uvIndex: 8,
   },
-  เชียงใหม่: {
+  chiangmai: {
     city: "เชียงใหม่",
     temperature: 28,
     rainChance: "30%",
@@ -24,7 +24,7 @@ const mockWeatherData = {
     windSpeed: 10,
     uvIndex: 7,
   },
-  ภูเก็ต: {
+  phuket: {
     city: "ภูเก็ต",
     temperature: 31,
     rainChance: "60%",
@@ -35,7 +35,7 @@ const mockWeatherData = {
     windSpeed: 12,
     uvIndex: 6,
   },
-  ขอนแก่น: {
+  khonkaen: {
     city: "ขอนแก่น",
     temperature: 32,
     rainChance: "25%",
@@ -46,7 +46,7 @@ const mockWeatherData = {
     windSpeed: 14,
     uvIndex: 7,
   },
-  นครราชสีมา: {
+  nakhonratchasima: {
     city: "นครราชสีมา",
     temperature: 31,
     rainChance: "35%",
@@ -57,7 +57,7 @@ const mockWeatherData = {
     windSpeed: 13,
     uvIndex: 7,
   },
-  ชลบุรี: {
+  chonburi: {
     city: "ชลบุรี",
     temperature: 30,
     rainChance: "45%",
@@ -68,7 +68,7 @@ const mockWeatherData = {
     windSpeed: 14,
     uvIndex: 7,
   },
-  สงขลา: {
+  songkhla: {
     city: "สงขลา",
     temperature: 33,
     rainChance: "55%",
@@ -79,7 +79,7 @@ const mockWeatherData = {
     windSpeed: 15,
     uvIndex: 8,
   },
-  นครศรีธรรมราช: {
+  nakhonsithammarat: {
     city: "นครศรีธรรมราช",
     temperature: 32,
     rainChance: "70%",
@@ -90,7 +90,7 @@ const mockWeatherData = {
     windSpeed: 14,
     uvIndex: 7,
   },
-  สุราษฎร์ธานี: {
+  suratthani: {
     city: "สุราษฎร์ธานี",
     temperature: 31,
     rainChance: "50%",
@@ -101,7 +101,7 @@ const mockWeatherData = {
     windSpeed: 14,
     uvIndex: 7,
   },
-  อุดรธานี: {
+  udonthani: {
     city: "อุดรธานี",
     temperature: 29,
     rainChance: "20%",
@@ -112,7 +112,7 @@ const mockWeatherData = {
     windSpeed: 9,
     uvIndex: 6,
   },
-  พิษณุโลก: {
+  phitsanulok: {
     city: "พิษณุโลก",
     temperature: 30,
     rainChance: "25%",
@@ -123,7 +123,7 @@ const mockWeatherData = {
     windSpeed: 11,
     uvIndex: 7,
   },
-  นครสวรรค์: {
+  nakhonsawan: {
     city: "นครสวรรค์",
     temperature: 32,
     rainChance: "35%",
@@ -134,7 +134,7 @@ const mockWeatherData = {
     windSpeed: 13,
     uvIndex: 7,
   },
-  ระยอง: {
+  rayong: {
     city: "ระยอง",
     temperature: 31,
     rainChance: "45%",
@@ -145,7 +145,7 @@ const mockWeatherData = {
     windSpeed: 14,
     uvIndex: 7,
   },
-  ตรัง: {
+  trang: {
     city: "ตรัง",
     temperature: 30,
     rainChance: "60%",
@@ -156,7 +156,7 @@ const mockWeatherData = {
     windSpeed: 11,
     uvIndex: 7,
   },
-  แม่ฮ่องสอน: {
+  maeHongSon: {
     city: "แม่ฮ่องสอน",
     temperature: 27,
     rainChance: "15%",
@@ -425,7 +425,7 @@ citySearchInput.addEventListener("keypress", (e) => {
 // Load Last Viewed City
 // ==========================================
 function loadLastCity() {
-  const lastCity = localStorage.getItem("weatherAppLastCity") || "กรุงเทพมหานคร";
+  const lastCity = localStorage.getItem("weatherAppLastCity") || "bangkok";
 
   if (mockWeatherData[lastCity]) {
     displayWeather(mockWeatherData[lastCity], lastCity);
