@@ -12,6 +12,10 @@ const mockWeatherData = {
     realFeel: "35°",
     windSpeed: 15,
     uvIndex: 8,
+    humidity: 75,
+    pm25: 68,
+    pressure: 1010,
+    visibility: 8,
   },
   chiangmai: {
     city: "เชียงใหม่",
@@ -23,6 +27,10 @@ const mockWeatherData = {
     realFeel: "30°",
     windSpeed: 10,
     uvIndex: 7,
+    humidity: 65,
+    pm25: 85,
+    pressure: 1012,
+    visibility: 9,
   },
   phuket: {
     city: "ภูเก็ต",
@@ -34,6 +42,10 @@ const mockWeatherData = {
     realFeel: "33°",
     windSpeed: 12,
     uvIndex: 6,
+    humidity: 85,
+    pm25: 25,
+    pressure: 1008,
+    visibility: 7,
   },
   khonkaen: {
     city: "ขอนแก่น",
@@ -45,6 +57,10 @@ const mockWeatherData = {
     realFeel: "34°",
     windSpeed: 14,
     uvIndex: 7,
+    humidity: 60,
+    pm25: 55,
+    pressure: 1011,
+    visibility: 10,
   },
   nakhonratchasima: {
     city: "นครราชสีมา",
@@ -56,6 +72,10 @@ const mockWeatherData = {
     realFeel: "33°",
     windSpeed: 13,
     uvIndex: 7,
+    humidity: 68,
+    pm25: 48,
+    pressure: 1012,
+    visibility: 9,
   },
   chonburi: {
     city: "ชลบุรี",
@@ -67,6 +87,10 @@ const mockWeatherData = {
     realFeel: "32°",
     windSpeed: 14,
     uvIndex: 7,
+    humidity: 78,
+    pm25: 42,
+    pressure: 1009,
+    visibility: 8,
   },
   songkhla: {
     city: "สงขลา",
@@ -78,6 +102,10 @@ const mockWeatherData = {
     realFeel: "34°",
     windSpeed: 15,
     uvIndex: 8,
+    humidity: 82,
+    pm25: 30,
+    pressure: 1008,
+    visibility: 7,
   },
   nakhonsithammarat: {
     city: "นครศรีธรรมราช",
@@ -89,6 +117,10 @@ const mockWeatherData = {
     realFeel: "33°",
     windSpeed: 14,
     uvIndex: 7,
+    humidity: 88,
+    pm25: 28,
+    pressure: 1007,
+    visibility: 6,
   },
   suratthani: {
     city: "สุราษฎร์ธานี",
@@ -100,6 +132,10 @@ const mockWeatherData = {
     realFeel: "32°",
     windSpeed: 14,
     uvIndex: 7,
+    humidity: 80,
+    pm25: 32,
+    pressure: 1009,
+    visibility: 8,
   },
   udonthani: {
     city: "อุดรธานี",
@@ -111,6 +147,10 @@ const mockWeatherData = {
     realFeel: "29°",
     windSpeed: 9,
     uvIndex: 6,
+    humidity: 58,
+    pm25: 62,
+    pressure: 1013,
+    visibility: 10,
   },
   phitsanulok: {
     city: "พิษณุโลก",
@@ -122,6 +162,10 @@ const mockWeatherData = {
     realFeel: "31°",
     windSpeed: 11,
     uvIndex: 7,
+    humidity: 62,
+    pm25: 58,
+    pressure: 1012,
+    visibility: 9,
   },
   nakhonsawan: {
     city: "นครสวรรค์",
@@ -133,6 +177,10 @@ const mockWeatherData = {
     realFeel: "33°",
     windSpeed: 13,
     uvIndex: 7,
+    humidity: 70,
+    pm25: 52,
+    pressure: 1011,
+    visibility: 8,
   },
   rayong: {
     city: "ระยอง",
@@ -144,6 +192,10 @@ const mockWeatherData = {
     realFeel: "32°",
     windSpeed: 14,
     uvIndex: 7,
+    humidity: 76,
+    pm25: 45,
+    pressure: 1010,
+    visibility: 8,
   },
   trang: {
     city: "ตรัง",
@@ -155,6 +207,10 @@ const mockWeatherData = {
     realFeel: "31°",
     windSpeed: 11,
     uvIndex: 7,
+    humidity: 84,
+    pm25: 26,
+    pressure: 1008,
+    visibility: 7,
   },
   maeHongSon: {
     city: "แม่ฮ่องสอน",
@@ -166,6 +222,10 @@ const mockWeatherData = {
     realFeel: "27°",
     windSpeed: 8,
     uvIndex: 5,
+    humidity: 55,
+    pm25: 92,
+    pressure: 1014,
+    visibility: 10,
   },
 };
 
@@ -278,6 +338,10 @@ function displayWeather(data, cityKey) {
   // Update air conditions
   document.getElementById("realFeel").textContent = `${data.realFeel}`;
   document.getElementById("windSpeed").textContent = `${data.windSpeed} km/h`;
+  document.getElementById("humidity").textContent = `${data.humidity}%`;
+  document.getElementById("pm25").textContent = data.pm25;
+  document.getElementById("pressure").textContent = `${data.pressure} hPa`;
+  document.getElementById("visibility").textContent = `${data.visibility} km`;
   document.getElementById("rainPercent").textContent = `${data.rainChance}`;
   document.getElementById("uvIndex").textContent = data.uvIndex;
 
@@ -483,13 +547,76 @@ function updateWeatherBackground(condition) {
 // AIR CONDITIONS (ข้อมูลรายวัน)
 // ==========================================
 const weatherData = {
-  Sun: { realFeel: "24°", wind: "12 km/h", rainChance: "45%", uvIndex: "6" },
-  Mon: { realFeel: "30°", wind: "8 km/h", rainChance: "6%", uvIndex: "8" },
-  Tue: { realFeel: "23°", wind: "18 km/h", rainChance: "40%", uvIndex: "4" },
-  Wed: { realFeel: "26°", wind: "22 km/h", rainChance: "70%", uvIndex: "3" },
-  Thu: { realFeel: "35°", wind: "10 km/h", rainChance: "10%", uvIndex: "9" },
-  Fri: { realFeel: "25°", wind: "25 km/h", rainChance: "90%", uvIndex: "2" },
-  Sat: { realFeel: "27°", wind: "15 km/h", rainChance: "50%", uvIndex: "5" },
+  Sun: {
+    realFeel: "24°",
+    wind: "12 km/h",
+    humidity: "65%",
+    pm25: "45",
+    pressure: "1012 hPa",
+    visibility: "9 km",
+    rainChance: "45%",
+    uvIndex: "6",
+  },
+  Mon: {
+    realFeel: "30°",
+    wind: "8 km/h",
+    humidity: "55%",
+    pm25: "38",
+    pressure: "1014 hPa",
+    visibility: "10 km",
+    rainChance: "6%",
+    uvIndex: "8",
+  },
+  Tue: {
+    realFeel: "23°",
+    wind: "18 km/h",
+    humidity: "72%",
+    pm25: "52",
+    pressure: "1010 hPa",
+    visibility: "8 km",
+    rainChance: "40%",
+    uvIndex: "4",
+  },
+  Wed: {
+    realFeel: "26°",
+    wind: "22 km/h",
+    humidity: "85%",
+    pm25: "35",
+    pressure: "1008 hPa",
+    visibility: "7 km",
+    rainChance: "70%",
+    uvIndex: "3",
+  },
+  Thu: {
+    realFeel: "35°",
+    wind: "10 km/h",
+    humidity: "50%",
+    pm25: "68",
+    pressure: "1015 hPa",
+    visibility: "10 km",
+    rainChance: "10%",
+    uvIndex: "9",
+  },
+  Fri: {
+    realFeel: "25°",
+    wind: "25 km/h",
+    humidity: "88%",
+    pm25: "30",
+    pressure: "1007 hPa",
+    visibility: "6 km",
+    rainChance: "90%",
+    uvIndex: "2",
+  },
+  Sat: {
+    realFeel: "27°",
+    wind: "15 km/h",
+    humidity: "68%",
+    pm25: "48",
+    pressure: "1011 hPa",
+    visibility: "9 km",
+    rainChance: "50%",
+    uvIndex: "5",
+  },
 };
 
 function updateAirConditions(day, event) {
@@ -498,6 +625,10 @@ function updateAirConditions(day, event) {
 
   document.getElementById("realFeel").textContent = data.realFeel;
   document.getElementById("windSpeed").textContent = data.wind;
+  document.getElementById("humidity").textContent = data.humidity;
+  document.getElementById("pm25").textContent = data.pm25;
+  document.getElementById("pressure").textContent = data.pressure;
+  document.getElementById("visibility").textContent = data.visibility;
   document.getElementById("rainPercent").textContent = data.rainChance;
   document.getElementById("uvIndex").textContent = data.uvIndex;
 
