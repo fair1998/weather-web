@@ -27,32 +27,6 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css" />
-
-    <style>
-      .forecast-item {
-        transition: background-color 0.3s ease;
-        border-radius: 0.75rem;
-        padding: 0.5rem 1rem;
-      }
-
-      .forecast-item:hover {
-        background-color: rgba(102, 126, 234, 0.08);
-      }
-
-      .temp-bar {
-        height: 6px;
-        background-color: rgba(255, 255, 255, 0.1);
-        border-radius: 4px;
-        overflow: hidden;
-        position: relative;
-      }
-
-      .bar-inner {
-        height: 100%;
-        background: linear-gradient(90deg, #667eea, #764ba2);
-        border-radius: 4px;
-      }
-    </style>
   </head>
   <body>
     <!-- Sidebar Navigation -->
@@ -101,21 +75,7 @@
                   autocomplete="off"
                 />
                 <datalist id="citiesList">
-                  <option value="กรุงเทพมหานคร" data-city-key="กรุงเทพมหานคร"></option>
-                  <option value="เชียงใหม่" data-city-key="เชียงใหม่"></option>
-                  <option value="ภูเก็ต" data-city-key="ภูเก็ต"></option>
-                  <option value="ขอนแก่น" data-city-key="ขอนแก่น"></option>
-                  <option value="นครราชสีมา" data-city-key="นครราชสีมา"></option>
-                  <option value="ชลบุรี" data-city-key="ชลบุรี"></option>
-                  <option value="สงขลา" data-city-key="สงขลา"></option>
-                  <option value="นครศรีธรรมราช" data-city-key="นครศรีธรรมราช"></option>
-                  <option value="สุราษฎร์ธานี" data-city-key="สุราษฎร์ธานี"></option>
-                  <option value="อุดรธานี" data-city-key="อุดรธานี"></option>
-                  <option value="พิษณุโลก" data-city-key="พิษณุโลก"></option>
-                  <option value="นครสวรรค์" data-city-key="นครสวรรค์"></option>
-                  <option value="ระยอง" data-city-key="ระยอง"></option>
-                  <option value="ตรัง" data-city-key="ตรัง"></option>
-                  <option value="แม่ฮ่องสอน" data-city-key="แม่ฮ่องสอน"></option>
+                  <!-- City options will be dynamically inserted here -->
                 </datalist>
                 <button class="btn btn-outline-secondary" id="searchButton" type="button">
                   <i class="bi bi-search"></i>
@@ -133,7 +93,6 @@
           </div>
         </div>
 
-        <!-- Welcome Message -->
         <!-- Weather Dashboard -->
         <div id="weatherDashboard">
           <div class="row g-4">
@@ -143,7 +102,7 @@
                 <!-- Current Weather Card -->
                 <div class="card border-0 shadow-sm weather-card">
                   <div class="card-body p-5">
-                    <h1 class="h2 fw-normal mb-1"  id="cityName"></h1>
+                    <h1 class="h2 fw-normal mb-1" id="cityName"></h1>
                     <p class="small fw-normal opacity-75 mb-1" id="localTime"></p>
                     <p class="fw-normal opacity-75 mb-4" id="rainChance"></p>
 
@@ -153,7 +112,7 @@
                         <span class="fs-1 fw-light mt-2">°</span>
                       </div>
                       <div class="weather-icon-large">
-                        <i id="weatherIcon" class="bi bi-cloud-fill text-warning"></i>
+                        <i id="weatherIcon" class="bi bi-sun-fill text-warning"></i>
                       </div>
                     </div>
                   </div>
@@ -173,126 +132,7 @@
                       id="hourlyForecast"
                       style="scrollbar-width: thin; margin: -0.25rem"
                     >
-                      <div class="hourly-item text-center flex-shrink-0">
-                        <p class="text-secondary small mb-2">00:00</p>
-                        <i class="bi bi-cloud fs-2 text-warning d-block my-2"></i>
-                        <p class="fw-semibold mb-0">8°</p>
-                      </div>
-                      <div class="hourly-item text-center flex-shrink-0">
-                        <p class="text-secondary small mb-2">01:00</p>
-                        <i class="bi bi-cloud fs-2 text-warning d-block my-2"></i>
-                        <p class="fw-semibold mb-0">8°</p>
-                      </div>
-                      <div class="hourly-item text-center flex-shrink-0">
-                        <p class="text-secondary small mb-2">02:00</p>
-                        <i class="bi bi-cloud fs-2 text-warning d-block my-2"></i>
-                        <p class="fw-semibold mb-0">7°</p>
-                      </div>
-                      <div class="hourly-item text-center flex-shrink-0">
-                        <p class="text-secondary small mb-2">03:00</p>
-                        <i class="bi bi-cloud fs-2 text-warning d-block my-2"></i>
-                        <p class="fw-semibold mb-0">7°</p>
-                      </div>
-                      <div class="hourly-item text-center flex-shrink-0">
-                        <p class="text-secondary small mb-2">04:00</p>
-                        <i class="bi bi-cloud fs-2 text-warning d-block my-2"></i>
-                        <p class="fw-semibold mb-0">7°</p>
-                      </div>
-                      <div class="hourly-item text-center flex-shrink-0">
-                        <p class="text-secondary small mb-2">05:00</p>
-                        <i class="bi bi-cloud fs-2 text-warning d-block my-2"></i>
-                        <p class="fw-semibold mb-0">7°</p>
-                      </div>
-                      <div class="hourly-item text-center flex-shrink-0">
-                        <p class="text-secondary small mb-2">06:00</p>
-                        <i class="bi bi-cloud fs-2 text-warning d-block my-2"></i>
-                        <p class="fw-semibold mb-0">8°</p>
-                      </div>
-                      <div class="hourly-item text-center flex-shrink-0">
-                        <p class="text-secondary small mb-2">07:00</p>
-                        <i class="bi bi-cloud-sun fs-2 text-warning d-block my-2"></i>
-                        <p class="fw-semibold mb-0">9°</p>
-                      </div>
-                      <div class="hourly-item text-center flex-shrink-0">
-                        <p class="text-secondary small mb-2">08:00</p>
-                        <i class="bi bi-cloud-sun fs-2 text-warning d-block my-2"></i>
-                        <p class="fw-semibold mb-0">10°</p>
-                      </div>
-                      <div class="hourly-item text-center flex-shrink-0">
-                        <p class="text-secondary small mb-2">09:00</p>
-                        <i class="bi bi-cloud-sun fs-2 text-warning d-block my-2"></i>
-                        <p class="fw-semibold mb-0">11°</p>
-                      </div>
-                      <div class="hourly-item text-center flex-shrink-0">
-                        <p class="text-secondary small mb-2">10:00</p>
-                        <i class="bi bi-sun fs-2 text-warning d-block my-2"></i>
-                        <p class="fw-semibold mb-0">12°</p>
-                      </div>
-                      <div class="hourly-item text-center flex-shrink-0">
-                        <p class="text-secondary small mb-2">11:00</p>
-                        <i class="bi bi-sun fs-2 text-warning d-block my-2"></i>
-                        <p class="fw-semibold mb-0">13°</p>
-                      </div>
-                      <div class="hourly-item text-center flex-shrink-0">
-                        <p class="text-secondary small mb-2">12:00</p>
-                        <i class="bi bi-sun fs-2 text-warning d-block my-2"></i>
-                        <p class="fw-semibold mb-0">14°</p>
-                      </div>
-                      <div class="hourly-item text-center flex-shrink-0">
-                        <p class="text-secondary small mb-2">13:00</p>
-                        <i class="bi bi-sun fs-2 text-warning d-block my-2"></i>
-                        <p class="fw-semibold mb-0">14°</p>
-                      </div>
-                      <div class="hourly-item text-center flex-shrink-0">
-                        <p class="text-secondary small mb-2">14:00</p>
-                        <i class="bi bi-sun fs-2 text-warning d-block my-2"></i>
-                        <p class="fw-semibold mb-0">14°</p>
-                      </div>
-                      <div class="hourly-item text-center flex-shrink-0">
-                        <p class="text-secondary small mb-2">15:00</p>
-                        <i class="bi bi-sun fs-2 text-warning d-block my-2"></i>
-                        <p class="fw-semibold mb-0">14°</p>
-                      </div>
-                      <div class="hourly-item text-center flex-shrink-0">
-                        <p class="text-secondary small mb-2">16:00</p>
-                        <i class="bi bi-cloud-sun fs-2 text-warning d-block my-2"></i>
-                        <p class="fw-semibold mb-0">13°</p>
-                      </div>
-                      <div class="hourly-item text-center flex-shrink-0">
-                        <p class="text-secondary small mb-2">17:00</p>
-                        <i class="bi bi-cloud-sun fs-2 text-warning d-block my-2"></i>
-                        <p class="fw-semibold mb-0">12°</p>
-                      </div>
-                      <div class="hourly-item text-center flex-shrink-0">
-                        <p class="text-secondary small mb-2">18:00</p>
-                        <i class="bi bi-cloud-sun fs-2 text-warning d-block my-2"></i>
-                        <p class="fw-semibold mb-0">11°</p>
-                      </div>
-                      <div class="hourly-item text-center flex-shrink-0">
-                        <p class="text-secondary small mb-2">19:00</p>
-                        <i class="bi bi-cloud fs-2 text-warning d-block my-2"></i>
-                        <p class="fw-semibold mb-0">10°</p>
-                      </div>
-                      <div class="hourly-item text-center flex-shrink-0">
-                        <p class="text-secondary small mb-2">20:00</p>
-                        <i class="bi bi-cloud fs-2 text-warning d-block my-2"></i>
-                        <p class="fw-semibold mb-0">9°</p>
-                      </div>
-                      <div class="hourly-item text-center flex-shrink-0">
-                        <p class="text-secondary small mb-2">21:00</p>
-                        <i class="bi bi-cloud fs-2 text-warning d-block my-2"></i>
-                        <p class="fw-semibold mb-0">9°</p>
-                      </div>
-                      <div class="hourly-item text-center flex-shrink-0">
-                        <p class="text-secondary small mb-2">22:00</p>
-                        <i class="bi bi-cloud fs-2 text-warning d-block my-2"></i>
-                        <p class="fw-semibold mb-0">8°</p>
-                      </div>
-                      <div class="hourly-item text-center flex-shrink-0">
-                        <p class="text-secondary small mb-2">23:00</p>
-                        <i class="bi bi-cloud fs-2 text-warning d-block my-2"></i>
-                        <p class="fw-semibold mb-0">8°</p>
-                      </div>
+                      <!-- Hourly forecast will be inserted here -->
                     </div>
                   </div>
                 </div>
@@ -305,7 +145,7 @@
                         class="text-uppercase text-secondary fw-semibold mb-0"
                         style="font-size: 0.875rem; letter-spacing: 0.5px"
                       >
-                        AIR CONDITIONS
+                        สภาวะของอากาศ
                       </h3>
                     </div>
                     <div class="row row-cols-1 row-cols-md-2 g-4">
@@ -359,206 +199,10 @@
                     class="text-uppercase text-secondary fw-semibold mb-4"
                     style="font-size: 0.875rem; letter-spacing: 0.5px"
                   >
-                    7-DAY FORECAST
+                    พยากรณ์อากาศ 7 วัน
                   </h3>
-                  <div class="d-flex flex-column gap-3">
-                    <!-- sun -->
-                    <div
-                      class="forecast-item d-flex align-items-center justify-content-between py-3 border-bottom"
-                      onclick="updateAirConditions('Sun')"
-                    >
-                      <span class="day fw-medium" style="width: 60px">Sun</span>
-                      <i class="bi bi-cloud-sun fs-4 text-warning" style="width: 40px"></i>
-                      <span class="text-secondary small text-capitalize flex-fill">
-                        Partly cloudy
-                      </span>
-                      <span
-                        class="text-secondary fw-semibold"
-                        style="width: 40px; text-align: right"
-                      >
-                        25°
-                      </span>
-                      <div class="temp-bar flex-fill mx-2">
-                        <div class="bar-inner" style="width: 60%"></div>
-                      </div>
-                      <span class="fw-semibold" style="width: 40px">31°</span>
-                      <div
-                        class="rain-chance d-flex align-items-center gap-1"
-                        style="width: 70px; justify-content: flex-end"
-                      >
-                        <i class="bi bi-droplet text-info"></i>
-                        <span class="text-secondary small">45%</span>
-                      </div>
-                    </div>
-                    <!-- mon -->
-                    <div class="d-flex flex-column gap-3">
-                      <div
-                        class="forecast-item d-flex align-items-center justify-content-between py-3 border-bottom"
-                        onclick="updateAirConditions('Mon')"
-                      >
-                        <span class="day fw-medium" style="width: 60px">Mon</span>
-                        <i class="bi bi-sun fs-4 text-warning" style="width: 40px"></i>
-                        <span class="text-secondary small text-capitalize flex-fill">Sunny</span>
-                        <span
-                          class="text-secondary fw-semibold"
-                          style="width: 40px; text-align: right"
-                        >
-                          29°
-                        </span>
-                        <div class="temp-bar flex-fill mx-2">
-                          <div class="bar-inner" style="width: 60%"></div>
-                        </div>
-                        <span class="fw-semibold" style="width: 40px">33°</span>
-                        <div
-                          class="rain-chance d-flex align-items-center gap-1"
-                          style="width: 70px; justify-content: flex-end"
-                        >
-                          <i class="bi bi-droplet text-info"></i>
-                          <span class="text-secondary small">6%</span>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- tue -->
-                    <div class="d-flex flex-column gap-3">
-                      <div
-                        class="forecast-item d-flex align-items-center justify-content-between py-3 border-bottom"
-                        onclick="updateAirConditions('Tue')"
-                      >
-                        <span class="day fw-medium" style="width: 60px">Tue</span>
-                        <i class="bi bi-cloud fs-4 text-warning" style="width: 40px"></i>
-                        <span class="text-secondary small text-capitalize flex-fill">Cloundy</span>
-                        <span
-                          class="text-secondary fw-semibold"
-                          style="width: 40px; text-align: right"
-                        >
-                          25°
-                        </span>
-                        <div class="temp-bar flex-fill mx-2">
-                          <div class="bar-inner" style="width: 60%"></div>
-                        </div>
-                        <span class="fw-semibold" style="width: 40px">28°</span>
-                        <div
-                          class="rain-chance d-flex align-items-center gap-1"
-                          style="width: 70px; justify-content: flex-end"
-                        >
-                          <i class="bi bi-droplet text-info"></i>
-                          <span class="text-secondary small">40%</span>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- Wednesday -->
-                    <div class="d-flex flex-column gap-3">
-                      <div
-                        class="forecast-item d-flex align-items-center justify-content-between py-3 border-bottom"
-                        onclick="updateAirConditions('Wed')"
-                      >
-                        <span class="day fw-medium" style="width: 60px">Wed</span>
-                        <i class="bi bi-cloud-rain fs-4 text-warning" style="width: 40px"></i>
-                        <span class="text-secondary small text-capitalize flex-fill">Rainy</span>
-                        <span
-                          class="text-secondary fw-semibold"
-                          style="width: 40px; text-align: right"
-                        >
-                          27°
-                        </span>
-                        <div class="temp-bar flex-fill mx-2">
-                          <div class="bar-inner" style="width: 60%"></div>
-                        </div>
-                        <span class="fw-semibold" style="width: 40px">30°</span>
-                        <div
-                          class="rain-chance d-flex align-items-center gap-1"
-                          style="width: 70px; justify-content: flex-end"
-                        >
-                          <i class="bi bi-droplet text-info"></i>
-                          <span class="text-secondary small">70%</span>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- Thursday -->
-                    <div class="d-flex flex-column gap-3">
-                      <div
-                        class="forecast-item d-flex align-items-center justify-content-between py-3 border-bottom"
-                        onclick="updateAirConditions('Thu')"
-                      >
-                        <span class="day fw-medium" style="width: 60px">Thu</span>
-                        <i class="bi bi-sun fs-4 text-warning" style="width: 40px"></i>
-                        <span class="text-secondary small text-capitalize flex-fill">Sunny</span>
-                        <span
-                          class="text-secondary fw-semibold"
-                          style="width: 40px; text-align: right"
-                        >
-                          31°
-                        </span>
-                        <div class="temp-bar flex-fill mx-2">
-                          <div class="bar-inner" style="width: 60%"></div>
-                        </div>
-                        <span class="fw-semibold" style="width: 40px">36°</span>
-                        <div
-                          class="rain-chance d-flex align-items-center gap-1"
-                          style="width: 70px; justify-content: flex-end"
-                        >
-                          <i class="bi bi-droplet text-info"></i>
-                          <span class="text-secondary small">10%</span>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- Friday -->
-                    <div class="d-flex flex-column gap-3">
-                      <div
-                        class="forecast-item d-flex align-items-center justify-content-between py-3 border-bottom"
-                        onclick="updateAirConditions('Fri')"
-                      >
-                        <span class="day fw-medium" style="width: 60px">Fri</span>
-                        <i class="bi bi-cloud-rain fs-4 text-warning" style="width: 40px"></i>
-                        <span class="text-secondary small text-capitalize flex-fill">Rainy</span>
-                        <span
-                          class="text-secondary fw-semibold"
-                          style="width: 40px; text-align: right"
-                        >
-                          27°
-                        </span>
-                        <div class="temp-bar flex-fill mx-2">
-                          <div class="bar-inner" style="width: 60%"></div>
-                        </div>
-                        <span class="fw-semibold" style="width: 40px">30°</span>
-                        <div
-                          class="rain-chance d-flex align-items-center gap-1"
-                          style="width: 70px; justify-content: flex-end"
-                        >
-                          <i class="bi bi-droplet text-info"></i>
-                          <span class="text-secondary small">90%</span>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- Saturday -->
-                    <div class="d-flex flex-column gap-3">
-                      <div
-                        class="forecast-item d-flex align-items-center justify-content-between py-3 border-bottom"
-                        onclick="updateAirConditions('Sat')"
-                      >
-                        <span class="day fw-medium" style="width: 60px">Sat</span>
-                        <i class="bi-cloud fs-4 text-warning" style="width: 40px"></i>
-                        <span class="text-secondary small text-capitalize flex-fill">clouday</span>
-                        <span
-                          class="text-secondary fw-semibold"
-                          style="width: 40px; text-align: right"
-                        >
-                          28°
-                        </span>
-                        <div class="temp-bar flex-fill mx-2">
-                          <div class="bar-inner" style="width: 60%"></div>
-                        </div>
-                        <span class="fw-semibold" style="width: 40px">31°</span>
-                        <div
-                          class="rain-chance d-flex align-items-center gap-1"
-                          style="width: 70px; justify-content: flex-end"
-                        >
-                          <i class="bi bi-droplet text-info"></i>
-                          <span class="text-secondary small">50%</span>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- ปิด forecast7Day -->
+                  <div class="d-flex flex-column gap-3" id="forecast7Day">
+                    <!-- 7-day forecast will be inserted here -->
                   </div>
                 </div>
               </div>
