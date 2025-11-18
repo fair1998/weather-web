@@ -9,6 +9,9 @@ const mockWeatherData = {
     icon: "bi-cloud-sun-fill",
     condition: "sunny",
     localTime: "10:00 น.",
+    realFeel: "35°",
+    windSpeed: 15,
+    uvIndex: 8,
   },
   เชียงใหม่: {
     city: "เชียงใหม่",
@@ -17,6 +20,9 @@ const mockWeatherData = {
     icon: "bi-sun-fill",
     condition: "sunny",
     localTime: "10:00 น.",
+    realFeel: "30°",
+    windSpeed: 10,
+    uvIndex: 7,
   },
   ภูเก็ต: {
     city: "ภูเก็ต",
@@ -25,6 +31,9 @@ const mockWeatherData = {
     icon: "bi-cloud-rain-fill",
     condition: "rainy",
     localTime: "10:00 น.",
+    realFeel: "33°",
+    windSpeed: 12,
+    uvIndex: 6,
   },
   ขอนแก่น: {
     city: "ขอนแก่น",
@@ -33,6 +42,9 @@ const mockWeatherData = {
     icon: "bi-sun-fill",
     condition: "sunny",
     localTime: "10:00 น.",
+    realFeel: "34°",
+    windSpeed: 14,
+    uvIndex: 7,
   },
   นครราชสีมา: {
     city: "นครราชสีมา",
@@ -41,6 +53,9 @@ const mockWeatherData = {
     icon: "bi-cloud-fill",
     condition: "cloudy",
     localTime: "10:00 น.",
+    realFeel: "33°",
+    windSpeed: 13,
+    uvIndex: 7,
   },
   ชลบุรี: {
     city: "ชลบุรี",
@@ -49,6 +64,9 @@ const mockWeatherData = {
     icon: "bi-cloud-rain-fill",
     condition: "rainy",
     localTime: "10:00 น.",
+    realFeel: "32°",
+    windSpeed: 14,
+    uvIndex: 7,
   },
   สงขลา: {
     city: "สงขลา",
@@ -57,6 +75,9 @@ const mockWeatherData = {
     icon: "bi-cloud-rain-fill",
     condition: "rainy",
     localTime: "10:00 น.",
+    realFeel: "34°",
+    windSpeed: 15,
+    uvIndex: 8,
   },
   นครศรีธรรมราช: {
     city: "นครศรีธรรมราช",
@@ -65,6 +86,9 @@ const mockWeatherData = {
     icon: "bi-cloud-lightning-rain-fill",
     condition: "rainy",
     localTime: "10:00 น.",
+    realFeel: "33°",
+    windSpeed: 14,
+    uvIndex: 7,
   },
   สุราษฎร์ธานี: {
     city: "สุราษฎร์ธานี",
@@ -73,6 +97,9 @@ const mockWeatherData = {
     icon: "bi-cloud-rain-fill",
     condition: "rainy",
     localTime: "10:00 น.",
+    realFeel: "32°",
+    windSpeed: 14,
+    uvIndex: 7,
   },
   อุดรธานี: {
     city: "อุดรธานี",
@@ -81,6 +108,9 @@ const mockWeatherData = {
     icon: "bi-sun-fill",
     condition: "sunny",
     localTime: "10:00 น.",
+    realFeel: "29°",
+    windSpeed: 9,
+    uvIndex: 6,
   },
   พิษณุโลก: {
     city: "พิษณุโลก",
@@ -89,6 +119,9 @@ const mockWeatherData = {
     icon: "bi-sun-fill",
     condition: "sunny",
     localTime: "10:00 น.",
+    realFeel: "31°",
+    windSpeed: 11,
+    uvIndex: 7,
   },
   นครสวรรค์: {
     city: "นครสวรรค์",
@@ -97,6 +130,9 @@ const mockWeatherData = {
     icon: "bi-cloud-fill",
     condition: "cloudy",
     localTime: "10:00 น.",
+    realFeel: "33°",
+    windSpeed: 13,
+    uvIndex: 7,
   },
   ระยอง: {
     city: "ระยอง",
@@ -105,6 +141,9 @@ const mockWeatherData = {
     icon: "bi-cloud-rain-fill",
     condition: "rainy",
     localTime: "10:00 น.",
+    realFeel: "32°",
+    windSpeed: 14,
+    uvIndex: 7,
   },
   ตรัง: {
     city: "ตรัง",
@@ -113,6 +152,9 @@ const mockWeatherData = {
     icon: "bi-cloud-rain-fill",
     condition: "rainy",
     localTime: "10:00 น.",
+    realFeel: "31°",
+    windSpeed: 11,
+    uvIndex: 7,
   },
   แม่ฮ่องสอน: {
     city: "แม่ฮ่องสอน",
@@ -121,6 +163,9 @@ const mockWeatherData = {
     icon: "bi-sun-fill",
     condition: "sunny",
     localTime: "10:00 น.",
+    realFeel: "27°",
+    windSpeed: 8,
+    uvIndex: 5,
   },
 };
 
@@ -231,7 +276,7 @@ function displayWeather(data, cityKey) {
   document.getElementById("weatherIcon").className = `bi ${data.icon} text-warning`;
 
   // Update air conditions
-  document.getElementById("realFeel").textContent = `${data.realFeel}°`;
+  document.getElementById("realFeel").textContent = `${data.realFeel}`;
   document.getElementById("windSpeed").textContent = `${data.windSpeed} km/h`;
   document.getElementById("rainPercent").textContent = `${data.rainChance}`;
   document.getElementById("uvIndex").textContent = data.uvIndex;
