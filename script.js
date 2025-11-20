@@ -241,11 +241,11 @@ function generateHourlyForecast(baseData) {
 function generate7DayForecast(baseData) {
   const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   const conditions = [
-    { name: "Sunny", icon: "bi-sun" },
-    { name: "Partly cloudy", icon: "bi-cloud-sun" },
-    { name: "Cloudy", icon: "bi-cloud" },
-    { name: "Rainy", icon: "bi-cloud-rain" },
-    { name: "Storm", icon: "bi-cloud-lightning" },
+    { name: "มีเเดดออก", icon: "bi-sun" },
+    { name: "มีเมฆบางส่วน", icon: "bi-cloud-sun" },
+    { name: "มีเมฆมาก", icon: "bi-cloud" },
+    { name: "ฝนตก", icon: "bi-cloud-rain" },
+    { name: "มีพายุ", icon: "bi-cloud-lightning" },
   ];
 
   const forecast = [];
