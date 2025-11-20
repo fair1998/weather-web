@@ -239,7 +239,8 @@ function generateHourlyForecast(baseData) {
 // Generate 7-Day Forecast
 // ==========================================
 function generate7DayForecast(baseData) {
-  const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  //const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const days = ["อาทิตย์", "จันทร์", "อังคาร", "พุธ", "พฤหัส", "ศุกร์", "เสาร์"];
   const conditions = [
     { name: "มีเเดดออก", icon: "bi-sun" },
     { name: "มีเมฆบางส่วน", icon: "bi-cloud-sun" },
@@ -255,7 +256,8 @@ function generate7DayForecast(baseData) {
     const forecastDate = new Date(today);
     forecastDate.setDate(today.getDate() + i);
 
-    const dayName = i === 0 ? "Today" : days[forecastDate.getDay()];
+    //const dayName = i === 0 ? "Today" : days[forecastDate.getDay()];
+    const dayName = i === 0 ? "วันนี้" : days[forecastDate.getDay()];
 
     // Generate temperature variations
     const tempHigh = baseData.temperature + Math.floor(Math.random() * 6) - 2;
@@ -422,7 +424,7 @@ function display7DayForecast(baseData) {
       onclick="updateAirConditions('${day.key}', event)"
     >
       <span class="day fw-medium" style="width: 60px">${day.day}</span>
-      <i class="bi bi-cloud-sun fs-4 text-warning" style="width: 40px"></i>
+      <i class="bi ${day.icon} fs-4 text-warning" style="width: 40px"></i>
       <span class="text-secondary small text-capitalize flex-fill">
         ${day.condition}
       </span>
@@ -582,7 +584,7 @@ function updateWeatherBackground(condition) {
 // AIR CONDITIONS (ข้อมูลรายวัน)
 // ==========================================
 const weatherData = {
-  Sun: {
+  อาทิตย์: {
     realFeel: "24°",
     wind: "12 km/h",
     humidity: "65%",
@@ -592,7 +594,7 @@ const weatherData = {
     rainChance: "45%",
     uvIndex: "6",
   },
-  Mon: {
+  จันทร์: {
     realFeel: "30°",
     wind: "8 km/h",
     humidity: "55%",
@@ -602,7 +604,7 @@ const weatherData = {
     rainChance: "6%",
     uvIndex: "8",
   },
-  Tue: {
+  อังคาร: {
     realFeel: "23°",
     wind: "18 km/h",
     humidity: "72%",
@@ -612,7 +614,7 @@ const weatherData = {
     rainChance: "40%",
     uvIndex: "4",
   },
-  Wed: {
+  พุธ: {
     realFeel: "26°",
     wind: "22 km/h",
     humidity: "85%",
@@ -622,7 +624,7 @@ const weatherData = {
     rainChance: "70%",
     uvIndex: "3",
   },
-  Thu: {
+  พฤหัส: {
     realFeel: "35°",
     wind: "10 km/h",
     humidity: "50%",
@@ -632,7 +634,7 @@ const weatherData = {
     rainChance: "10%",
     uvIndex: "9",
   },
-  Fri: {
+  ศุกร์: {
     realFeel: "25°",
     wind: "25 km/h",
     humidity: "88%",
@@ -642,7 +644,7 @@ const weatherData = {
     rainChance: "90%",
     uvIndex: "2",
   },
-  Sat: {
+  เสาร์: {
     realFeel: "27°",
     wind: "15 km/h",
     humidity: "68%",
