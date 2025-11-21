@@ -1,4 +1,10 @@
 // ==========================================
+// Mock Weather Data
+// ==========================================
+
+const mockWeatherData = generateMockWeatherData();
+
+// ==========================================
 // Theme Management
 // ==========================================
 const themeToggle = document.getElementById("themeToggle");
