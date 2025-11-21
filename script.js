@@ -47,13 +47,11 @@ function loadLastCity() {
 // ==========================================
 function updateWeatherBackground(condition) {
   const weatherCard = document.querySelector(".weather-card");
-  weatherCard.classList.remove("sunny-bg", "cloudy-bg", "rainy-bg", "snowy-bg", "night-bg");
+  weatherCard.classList.remove("sunny-bg", "cloudy-bg", "rainy-bg");
 
-  if (condition.includes("sun")) weatherCard.classList.add("sunny-bg");
-  else if (condition.includes("cloud")) weatherCard.classList.add("cloudy-bg");
-  else if (condition.includes("rain")) weatherCard.classList.add("rainy-bg");
-  else if (condition.includes("snow")) weatherCard.classList.add("snowy-bg");
-  else weatherCard.classList.add("night-bg");
+  if (condition === "sunny") weatherCard.classList.add("sunny-bg");
+  else if (condition === "cloudy") weatherCard.classList.add("cloudy-bg");
+  else if (condition === "rainy") weatherCard.classList.add("rainy-bg");
 }
 
 // ==========================================
@@ -74,10 +72,16 @@ function updateAirConditions(dayIndex, event) {
   const tempHigh = selectedItem.getAttribute("data-temp-high");
   const icon = selectedItem.getAttribute("data-icon");
   const rainChance = selectedItem.getAttribute("data-rain-chance");
+  const conditionType = selectedItem.getAttribute("data-condition-name");
 
   if (!weatherData) {
     showToast("ไม่พบข้อมูลสภาพอากาศ");
     return;
+  }
+
+  // Update weather background based on selected day's condition
+  if (conditionType) {
+    updateWeatherBackground(conditionType);
   }
 
   // Update Current Weather Card
