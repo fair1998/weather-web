@@ -3,7 +3,9 @@
 // ==========================================
 function displayWeather(data, cityKey) {
   // Update main weather info
-  document.getElementById("cityName").textContent = data.city;
+  const cityNameElement = document.getElementById("cityName");
+  cityNameElement.textContent = data.city;
+
   document.getElementById("rainChance").textContent = `โอกาสเกิดฝน: ${data.rainChance}`;
   document.getElementById("temperature").textContent = data.temperature;
   document.getElementById("weatherIcon").className = `bi ${data.icon} text-warning`;
@@ -21,6 +23,11 @@ function displayWeather(data, cityKey) {
   if (cityKey) {
     updateWeatherBackground(data.condition);
     localStorage.setItem("weatherAppLastCity", cityKey);
+  }
+
+  // Update favorite button state
+  if (typeof updateFavoriteButton === "function") {
+    updateFavoriteButton();
   }
 }
 

@@ -50,7 +50,9 @@ function displayAirConditions(data) {
         <i class="bi ${item.icon} fs-4 text-secondary"></i>
         <div>
           <p class="text-secondary mb-1 small">${item.label}</p>
-          <p class="fs-4 fw-semibold mb-0" id="${item.id}">${item.getValue(data)}</p>
+          <p class="fs-4 fw-semibold mb-0" id="${
+            item.id
+          }" data-${item.id.toLowerCase()}="${item.getValue(data)}">${item.getValue(data)}</p>
         </div>
       </div>
     </div>

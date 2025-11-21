@@ -251,3 +251,130 @@ body {
   background: linear-gradient(90deg, #667eea, #764ba2);
   border-radius: 4px;
 }
+
+/* ==========================================
+   Favorite Button Styling
+   ========================================== */
+.favorite-btn {
+  transition: all 0.3s ease;
+}
+
+.favorite-btn:hover {
+  background-color: rgba(251, 191, 36, 0.1);
+  border-color: #fbbf24;
+  transform: scale(1.1);
+}
+
+.favorite-btn.active {
+  background-color: #fbbf24;
+  border-color: #fbbf24;
+  color: white;
+}
+
+.favorite-btn.active i {
+  color: white;
+}
+
+.favorite-btn.active i::before {
+  content: "\f586"; /* bi-star-fill */
+}
+
+/* ==========================================
+   Favorite Cities Card Styling
+   ========================================== */
+.favorite-city-card {
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(102, 126, 234, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+[data-theme="dark"] .favorite-city-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(102, 126, 234, 0.15);
+}
+
+.favorite-city-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.favorite-city-card:hover::before {
+  opacity: 1;
+}
+
+.favorite-city-card:hover {
+  transform: translateY(-4px);
+  background-color: rgba(102, 126, 234, 0.1);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.2);
+  border-color: rgba(102, 126, 234, 0.3);
+}
+
+[data-theme="dark"] .favorite-city-card:hover {
+  background-color: rgba(102, 126, 234, 0.12);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.favorite-city-card .remove-favorite {
+  opacity: 0;
+  transition: all 0.3s ease;
+  border-radius: 0.5rem;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.favorite-city-card:hover .remove-favorite {
+  opacity: 1;
+}
+
+.favorite-city-card .remove-favorite:hover {
+  background-color: rgba(220, 38, 38, 0.15);
+  border-color: rgba(220, 38, 38, 0.3);
+  transform: scale(1.1);
+}
+
+.favorite-city-card .weather-mini-icon {
+  font-size: 2.5rem;
+  opacity: 0.9;
+  transition: transform 0.3s ease;
+}
+
+.favorite-city-card:hover .weather-mini-icon {
+  transform: scale(1.1);
+}
+
+.favorite-city-card h5,
+.favorite-city-card h6 {
+  color: var(--bs-body-color);
+}
+
+.favorite-city-card .text-muted {
+  color: var(--bs-secondary) !important;
+}
+
+/* ==========================================
+   Menu Item Active State
+   ========================================== */
+.menu-item.active {
+  background-color: rgba(102, 126, 234, 0.25) !important;
+}
+
+.menu-item.active i,
+.menu-item.active small {
+  color: #667eea !important;
+}
