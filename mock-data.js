@@ -41,6 +41,15 @@ function generateMockWeatherData() {
     const pressure = Math.floor(Math.random() * 15) + 1005; // 1005-1019 hPa
     const visibility = Math.floor(Math.random() * 6) + 5; // 5-10 km
 
+    // Generate 7-day forecast for this city
+    const forecast7Days = generate7DayForecastData(city.baseTemp);
+
+    // Generate hourly forecast for today (using city's current data)
+    const hourlyForecast = generateHourlyForecastData({
+      temperature: city.baseTemp,
+      condition: condition.name,
+    });
+
     weatherData[city.key] = {
       city: city.name,
       temperature: city.baseTemp,
@@ -54,44 +63,72 @@ function generateMockWeatherData() {
       pm25: pm25,
       pressure: pressure,
       visibility: visibility,
+      // Pre-generated forecasts
+      hourlyForecast: hourlyForecast,
+      forecast7Days: forecast7Days,
     };
   });
 
   return weatherData;
 }
 
+const mockWeatherData = generateMockWeatherData();
+
 // ==========================================
-// Generate Hourly Forecast
+// Generate Hourly Forecast Data
 // ==========================================
-function generateHourlyForecast(baseData) {
+function generateHourlyForecastData(baseData) {
   const hours = Array.from({ length: 24 }, (_, i) => {
     const hour = i % 24;
     return hour.toString().padStart(2, "0") + ":00";
   });
-  const icons = ["bi-cloud", "bi-cloud-sun", "bi-sun", "bi-sun", "bi-cloud-sun", "bi-cloud"];
+
+  // Map icons based on condition
+  const getIconForCondition = (condition) => {
+    if (condition === "sunny") return ["bi-sun", "bi-sun", "bi-cloud-sun"];
+    if (condition === "cloudy") return ["bi-cloud", "bi-cloud-sun", "bi-cloud"];
+    if (condition === "rainy") return ["bi-cloud-rain", "bi-cloud-drizzle", "bi-cloud-rain"];
+    return ["bi-cloud-sun", "bi-sun", "bi-cloud"];
+  };
+
+  const conditionIcons = getIconForCondition(baseData.condition);
 
   return hours.map((hour, index) => {
-    const tempVariation = Math.floor(Math.random() * 6) - 3;
-    const iconIndex = Math.floor(Math.random() * 6);
+    const hourNum = parseInt(hour);
+
+    // Temperature varies throughout the day (cooler at night, warmer in afternoon)
+    let tempVariation = 0;
+    if (hourNum >= 0 && hourNum < 6) {
+      tempVariation = Math.floor(Math.random() * 3) - 5; // -5 to -3 (cooler at night)
+    } else if (hourNum >= 6 && hourNum < 12) {
+      tempVariation = Math.floor(Math.random() * 3) - 2; // -2 to 0 (morning)
+    } else if (hourNum >= 12 && hourNum < 18) {
+      tempVariation = Math.floor(Math.random() * 4); // 0 to +3 (hottest in afternoon)
+    } else {
+      tempVariation = Math.floor(Math.random() * 3) - 3; // -3 to -1 (evening)
+    }
+
+    const iconIndex = Math.floor(Math.random() * conditionIcons.length);
+
     return {
       time: hour,
       temp: baseData.temperature + tempVariation,
-      icon: icons[iconIndex],
+      icon: conditionIcons[iconIndex],
     };
   });
 }
 
 // ==========================================
-// Generate 7-Day Forecast
+// Generate 7-Day Forecast Data
 // ==========================================
-function generate7DayForecast(baseData) {
+function generate7DayForecastData(baseTemp) {
   const days = ["อาทิตย์", "จันทร์", "อังคาร", "พุธ", "พฤหัส", "ศุกร์", "เสาร์"];
   const conditions = [
-    { name: "มีเเดดออก", icon: "bi-sun" },
-    { name: "มีเมฆบางส่วน", icon: "bi-cloud-sun" },
-    { name: "มีเมฆมาก", icon: "bi-cloud" },
-    { name: "ฝนตก", icon: "bi-cloud-rain" },
-    { name: "มีพายุ", icon: "bi-cloud-lightning" },
+    { name: "มีเเดดออก", icon: "bi-sun", condition: "sunny" },
+    { name: "มีเมฆบางส่วน", icon: "bi-cloud-sun", condition: "cloudy" },
+    { name: "มีเมฆมาก", icon: "bi-cloud", condition: "cloudy" },
+    { name: "ฝนตก", icon: "bi-cloud-rain", condition: "rainy" },
+    { name: "มีพายุ", icon: "bi-cloud-lightning", condition: "rainy" },
   ];
 
   const forecast = [];
@@ -104,13 +141,13 @@ function generate7DayForecast(baseData) {
     const dayName = i === 0 ? "วันนี้" : days[forecastDate.getDay()];
     const dayKey = days[forecastDate.getDay()];
 
-    // Generate temperature variations based on baseData
+    // Generate temperature variations based on baseTemp
     const tempVariation = Math.floor(Math.random() * 8) - 4; // -4 to +3
-    const tempHigh = baseData.temperature + tempVariation;
+    const tempHigh = baseTemp + tempVariation;
     const tempLow = tempHigh - Math.floor(Math.random() * 6) - 3; // 3-8 degrees lower
 
     // Select weather condition
-    const condition = conditions[Math.floor(Math.random() * conditions.length)];
+    const selectedCondition = conditions[Math.floor(Math.random() * conditions.length)];
 
     // Generate varied data for each day
     const rainChanceNum = Math.floor(Math.random() * 101); // 0-100
@@ -123,14 +160,23 @@ function generate7DayForecast(baseData) {
     const visibilityVariation = Math.floor(Math.random() * 6) + 5; // 5-10 km
     const uvVariation = Math.floor(Math.random() * 9) + 1; // 1-9
 
+    // Generate hourly forecast for this specific day
+    const hourlyForecastData = generateHourlyForecastData({
+      temperature: tempHigh,
+      condition: selectedCondition.condition,
+    });
+
     forecast.push({
       key: dayKey,
       day: dayName,
       tempHigh: tempHigh,
       tempLow: tempLow,
       rainChance: `${rainChanceNum}%`,
-      condition: condition.name,
-      icon: condition.icon,
+      condition: selectedCondition.name,
+      conditionType: selectedCondition.condition,
+      icon: selectedCondition.icon,
+      // Store hourly forecast data for this day
+      hourlyForecast: hourlyForecastData,
       // Store complete weather data for this day with variations
       weatherData: {
         realFeel: `${realFeelTemp}°`,

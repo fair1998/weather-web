@@ -1,10 +1,4 @@
 // ==========================================
-// Mock Weather Data
-// ==========================================
-
-const mockWeatherData = generateMockWeatherData();
-
-// ==========================================
 // Theme Management
 // ==========================================
 const themeToggle = document.getElementById("themeToggle");
@@ -106,11 +100,11 @@ function displayWeather(data, cityKey) {
   // Render air conditions
   renderAirConditions(data);
 
-  // Generate and display hourly forecast
-  displayHourlyForecast(data);
+  // Display pre-generated hourly forecast
+  displayHourlyForecast(data.hourlyForecast);
 
-  // Generate and display 7-day forecast
-  display7DayForecast(data);
+  // Display pre-generated 7-day forecast
+  display7DayForecast(data.forecast7Days);
 
   // Save to localStorage
   if (cityKey) {
@@ -119,8 +113,7 @@ function displayWeather(data, cityKey) {
   }
 }
 
-function displayHourlyForecast(baseData) {
-  const hourlyData = generateHourlyForecast(baseData);
+function displayHourlyForecast(hourlyData) {
   const container = document.getElementById("hourlyForecast");
 
   container.innerHTML = hourlyData
@@ -136,8 +129,7 @@ function displayHourlyForecast(baseData) {
     .join("");
 }
 
-function display7DayForecast(baseData) {
-  const forecastData = generate7DayForecast(baseData);
+function display7DayForecast(forecastData) {
   const container = document.getElementById("forecast7Day");
 
   container.innerHTML = forecastData
@@ -147,9 +139,10 @@ function display7DayForecast(baseData) {
       class="forecast-item d-flex align-items-center justify-content-between py-3 border-bottom"
       onclick="updateAirConditions(${index}, event)"
       data-weather='${JSON.stringify(day.weatherData)}'
+      data-hourly='${JSON.stringify(day.hourlyForecast)}'
       data-temp-high="${day.tempHigh}"
       data-temp-low="${day.tempLow}"
-      data-condition="${day.condition}"
+      data-condition-name="${day.conditionType}"
       data-icon="${day.icon}"
       data-rain-chance="${day.rainChance}"
     >
@@ -324,6 +317,7 @@ function updateAirConditions(dayIndex, event) {
 
   // Get weather data from data attribute
   const weatherData = JSON.parse(selectedItem.getAttribute("data-weather"));
+  const hourlyData = JSON.parse(selectedItem.getAttribute("data-hourly"));
   const tempHigh = selectedItem.getAttribute("data-temp-high");
   const icon = selectedItem.getAttribute("data-icon");
   const rainChance = selectedItem.getAttribute("data-rain-chance");
@@ -351,6 +345,22 @@ function updateAirConditions(dayIndex, event) {
   };
 
   renderAirConditions(tempData);
+
+  // Update Hourly Forecast with pre-generated data
+  if (hourlyData) {
+    const container = document.getElementById("hourlyForecast");
+    container.innerHTML = hourlyData
+      .map(
+        (hour) => `
+      <div class="hourly-item text-center flex-shrink-0">
+        <p class="text-secondary small mb-2">${hour.time}</p>
+        <i class="bi ${hour.icon} fs-2 text-warning d-block my-2"></i>
+        <p class="fw-semibold mb-0">${hour.temp}°</p>
+      </div>
+    `
+      )
+      .join("");
+  }
 
   // Update selected day highlight
   forecastItems.forEach((item) => {
