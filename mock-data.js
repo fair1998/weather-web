@@ -3,21 +3,96 @@
 // ==========================================
 function generateMockWeatherData() {
   const cities = [
+    // --- กรุงเทพมหานคร ---
     { key: "bangkok", name: "กรุงเทพมหานคร", baseTemp: 33 },
+
+    // --- ภาคเหนือ ---
     { key: "chiangmai", name: "เชียงใหม่", baseTemp: 28 },
-    { key: "phuket", name: "ภูเก็ต", baseTemp: 31 },
-    { key: "khonkaen", name: "ขอนแก่น", baseTemp: 32 },
-    { key: "nakhonratchasima", name: "นครราชสีมา", baseTemp: 31 },
-    { key: "chonburi", name: "ชลบุรี", baseTemp: 30 },
-    { key: "songkhla", name: "สงขลา", baseTemp: 33 },
-    { key: "nakhonsithammarat", name: "นครศรีธรรมราช", baseTemp: 32 },
-    { key: "suratthani", name: "สุราษฎร์ธานี", baseTemp: 31 },
-    { key: "udonthani", name: "อุดรธานี", baseTemp: 29 },
+    { key: "chiangrai", name: "เชียงราย", baseTemp: 27 },
+    { key: "lamphun", name: "ลำพูน", baseTemp: 28 },
+    { key: "lampang", name: "ลำปาง", baseTemp: 29 },
+    { key: "uttaradit", name: "อุตรดิตถ์", baseTemp: 30 },
+    { key: "phrae", name: "แพร่", baseTemp: 28 },
+    { key: "nan", name: "น่าน", baseTemp: 27 },
+    { key: "phayao", name: "พะเยา", baseTemp: 27 },
+    { key: "maehongson", name: "แม่ฮ่องสอน", baseTemp: 26 },
+    { key: "tak", name: "ตาก", baseTemp: 30 },
+    { key: "sukhothai", name: "สุโขทัย", baseTemp: 31 },
     { key: "phitsanulok", name: "พิษณุโลก", baseTemp: 30 },
+    { key: "phichit", name: "พิจิตร", baseTemp: 31 },
+    { key: "kamphaengphet", name: "กำแพงเพชร", baseTemp: 32 },
+
+    // --- ภาคตะวันออกเฉียงเหนือ ---
+    { key: "nakhonratchasima", name: "นครราชสีมา", baseTemp: 31 },
+    { key: "buriram", name: "บุรีรัมย์", baseTemp: 32 },
+    { key: "surin", name: "สุรินทร์", baseTemp: 32 },
+    { key: "sisaket", name: "ศรีสะเกษ", baseTemp: 31 },
+    { key: "ubonratchathani", name: "อุบลราชธานี", baseTemp: 31 },
+    { key: "yasothon", name: "ยโสธร", baseTemp: 31 },
+    { key: "amnatcharoen", name: "อำนาจเจริญ", baseTemp: 30 },
+    { key: "roiEt", name: "ร้อยเอ็ด", baseTemp: 31 },
+    { key: "mahasarakham", name: "มหาสารคาม", baseTemp: 32 },
+    { key: "kalasin", name: "กาฬสินธุ์", baseTemp: 31 },
+    { key: "khonkaen", name: "ขอนแก่น", baseTemp: 32 },
+    { key: "udonthani", name: "อุดรธานี", baseTemp: 29 },
+    { key: "loei", name: "เลย", baseTemp: 26 },
+    { key: "nongbualamphu", name: "หนองบัวลำภู", baseTemp: 29 },
+    { key: "nongkhai", name: "หนองคาย", baseTemp: 29 },
+    { key: "sakonNakhon", name: "สกลนคร", baseTemp: 28 },
+    { key: "nakhonPhanom", name: "นครพนม", baseTemp: 27 },
+    { key: "chaiyaphum", name: "ชัยภูมิ", baseTemp: 30 },
+    { key: "mukdahan", name: "มุกดาหาร", baseTemp: 28 },
+    { key: "buengkan", name: "บึงกาฬ", baseTemp: 28 }, // ⭐ เพิ่มจังหวัดที่หาย
+
+    // --- ภาคกลาง ---
     { key: "nakhonsawan", name: "นครสวรรค์", baseTemp: 32 },
+    { key: "uthaiThani", name: "อุทัยธานี", baseTemp: 32 },
+    { key: "chainat", name: "ชัยนาท", baseTemp: 33 },
+    { key: "singburi", name: "สิงห์บุรี", baseTemp: 33 },
+    { key: "lopburi", name: "ลพบุรี", baseTemp: 33 },
+    { key: "angthong", name: "อ่างทอง", baseTemp: 33 },
+    { key: "phranakhonsiayutthaya", name: "พระนครศรีอยุธยา", baseTemp: 33 },
+    { key: "saraburi", name: "สระบุรี", baseTemp: 32 },
+    { key: "suphanburi", name: "สุพรรณบุรี", baseTemp: 33 },
+    { key: "nakhonnayok", name: "นครนายก", baseTemp: 32 },
+    { key: "pathumthani", name: "ปทุมธานี", baseTemp: 33 },
+    { key: "nonthaburi", name: "นนทบุรี", baseTemp: 33 },
+    { key: "samutprakan", name: "สมุทรปราการ", baseTemp: 33 },
+    { key: "samutSakhon", name: "สมุทรสาคร", baseTemp: 32 },
+    { key: "samutsongkhram", name: "สมุทรสงคราม", baseTemp: 32 },
+    { key: "nakhonpathom", name: "นครปฐม", baseTemp: 32 },
+    { key: "phetchabun", name: "เพชรบูรณ์", baseTemp: 30 },
+
+    // --- ภาคตะวันตก ---
+    { key: "kanchanaburi", name: "กาญจนบุรี", baseTemp: 31 },
+    { key: "ratchaburi", name: "ราชบุรี", baseTemp: 32 },
+    { key: "phetchaburi", name: "เพชรบุรี", baseTemp: 31 },
+    { key: "prachuapkhirikhan", name: "ประจวบคีรีขันธ์", baseTemp: 31 },
+
+    // --- ภาคตะวันออก ---
+    { key: "chachoengsao", name: "ฉะเชิงเทรา", baseTemp: 32 },
+    { key: "prachinburi", name: "ปราจีนบุรี", baseTemp: 31 },
+    { key: "saKaeo", name: "สระแก้ว", baseTemp: 31 },
+    { key: "chonburi", name: "ชลบุรี", baseTemp: 30 },
     { key: "rayong", name: "ระยอง", baseTemp: 31 },
+    { key: "chanthaburi", name: "จันทบุรี", baseTemp: 30 },
+    { key: "trat", name: "ตราด", baseTemp: 30 },
+
+    // --- ภาคใต้ ---
+    { key: "chumphon", name: "ชุมพร", baseTemp: 31 },
+    { key: "ranong", name: "ระนอง", baseTemp: 30 },
+    { key: "suratthani", name: "สุราษฎร์ธานี", baseTemp: 31 },
+    { key: "phangnga", name: "พังงา", baseTemp: 30 },
+    { key: "phuket", name: "ภูเก็ต", baseTemp: 31 },
+    { key: "krabi", name: "กระบี่", baseTemp: 30 },
+    { key: "nakhonsithammarat", name: "นครศรีธรรมราช", baseTemp: 32 },
     { key: "trang", name: "ตรัง", baseTemp: 30 },
-    { key: "maeHongSon", name: "แม่ฮ่องสอน", baseTemp: 27 },
+    { key: "phatthalung", name: "พัทลุง", baseTemp: 31 },
+    { key: "satun", name: "สตูล", baseTemp: 30 },
+    { key: "songkhla", name: "สงขลา", baseTemp: 33 },
+    { key: "pattani", name: "ปัตตานี", baseTemp: 32 },
+    { key: "yala", name: "ยะลา", baseTemp: 32 },
+    { key: "narathiwat", name: "นราธิวาส", baseTemp: 32 },
   ];
 
   const conditions = [
