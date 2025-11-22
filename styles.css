@@ -257,12 +257,14 @@ body {
    ========================================== */
 .favorite-btn {
   transition: all 0.3s ease;
+  width: 48px;
+  height: 48px;
 }
 
 .favorite-btn:hover {
   background-color: rgba(251, 191, 36, 0.1);
-  border-color: #fbbf24;
   transform: scale(1.1);
+  color: white;
 }
 
 .favorite-btn.active {
