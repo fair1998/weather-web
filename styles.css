@@ -378,3 +378,39 @@ body {
 .menu-item.active small {
   color: #667eea !important;
 }
+
+/* ==========================================
+   Custom Scrollbar Styling for Hourly Forecast
+   ========================================== */
+#hourlyForecast {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(102, 126, 234, 0.4) rgba(102, 126, 234, 0.1);
+}
+
+#hourlyForecast::-webkit-scrollbar {
+  height: 8px;
+}
+
+#hourlyForecast::-webkit-scrollbar-track {
+  background: rgba(102, 126, 234, 0.08);
+  border-radius: 10px;
+  margin: 0 0.5rem;
+}
+
+#hourlyForecast::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+#hourlyForecast::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(90deg, #764ba2, #667eea);
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+[data-theme="dark"] #hourlyForecast::-webkit-scrollbar-track {
+  background: rgba(102, 126, 234, 0.12);
+}
